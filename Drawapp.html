@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <head>
+    <title>Draw!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/site.css">
+  </head>
+
+  <canvas id="drawing" width="1700" height="700"></canvas>
+
+  <br>
+  <p class="atitle" style="color:rgb(58, 58, 58)"> Click Mouse To Draw (Draw.js! by Lall)</p>
+  <label for="color">Color:</label>
+  <select id="color" name="color">
+    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+  </select>
+
+  <label for="brush-size">Brush Size:</label>
+  <input type="range" id="brush-size" name="brush-size" min="1" max="100" value="50">
+
+  <script src="js/Draw.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(52, 51, 51);
+}
+
+
+
+#credit {
+    font-family: 'Unbounded', cursive;
+    color: antiquewhite;
+    text-align: center;
+}
+
+#title {
+    font-family: 'Unbounded', cursive;
+    color: antiquewhite;
+    font-size: 20px;
+}
+
+.logos {
+    display: flex;
+}
+
+#logo {
+    margin: auto;
+
+}
+
+#home {
+    font-family: 'Unbounded', cursive;
+    color: rgb(131, 131, 131);
+
+}
