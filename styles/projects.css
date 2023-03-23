@@ -7,18 +7,14 @@ body {
 #credit {
     font-family: 'Unbounded', cursive;
     color: antiquewhite;
-    text-align: center;
 }
 
 #title {
     font-family: 'Unbounded', cursive;
-    color: antiquewhite;
+    color: rgb(250, 222, 215);
     font-size: 20px;
 }
 
-.logos {
-    display: flex;
-}
 
 #logo {
     margin: auto;
@@ -29,4 +25,8 @@ body {
     font-family: 'Unbounded', cursive;
     color: rgb(131, 131, 131);
 
+}
+
+.project{
+    background-color: rgb(78, 76, 74);
 }
