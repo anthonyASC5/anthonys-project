@@ -6,6 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .landscape1 {
@@ -29,8 +30,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 5px;
-
-
 }
 
 #credit {
@@ -43,4 +42,14 @@ body {
     font-family: 'Unbounded', cursive;
     color: rgb(131, 131, 131);
 
+}
+
+.ravenwood{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    flex-wrap: wrap;
+    margin-left: 350px;
+    margin-right: 350px;
 }
