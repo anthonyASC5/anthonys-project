@@ -30,3 +30,24 @@ body {
 .project{
     background-color: rgb(78, 76, 74);
 }
+
+@media (max-width:900px) {
+
+    html,
+    .media,
+    p {
+        font-size: 70%;
+    }
+
+    .navlist ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .asc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battleship Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+        }
+        .cell {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Battleship Game (By A Lall) </h1>
+
+    <div class="grid" id="grid"></div>
+    <script>
+        const GRID_SIZE = 10;
+        const SHIP_COUNT = 5;
+        let grid = [];
+        let shipsRemaining = SHIP_COUNT;
+
+        // Initialize the grid with empty cells and randomly place ships
+        function initGrid() {
+            for (let i = 0; i < GRID_SIZE; i++) {
+                grid[i] = [];
+                for (let j = 0; j < GRID_SIZE; j++) {
+                    grid[i][j] = {
+                        isShip: false,
+                        isHit: false
+                    };
+                }
+            }
+
+            for (let i = 0; i < SHIP_COUNT; i++) {
+                let row = Math.floor(Math.random() * GRID_SIZE);
+                let col = Math.floor(Math.random() * GRID_SIZE);
+                if (!grid[row][col].isShip) {
+                    grid[row][col].isShip = true;
+                } else {
+                    i--;
+                }
+            }
+        }
+
+        // Render the grid on the HTML page
+        function renderGrid() {
+            const gridElement = document.getElementById('grid');
+            gridElement.innerHTML = '';
+
+            for (let i = 0; i < GRID_SIZE; i++) {
+                for (let j = 0; j < GRID_SIZE; j++) {
+                    let cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.dataset.row = i;
+                    cell.dataset.col = j;
+
+                    if (grid[i][j].isHit) {
+                        cell.textContent = grid[i][j].isShip ? 'X' : '-';
+                        cell.style.backgroundColor = grid[i][j].isShip ? 'red' : 'gray';
+                    }
+
+                    cell.addEventListener('click', handleCellClick);
+                    gridElement.appendChild(cell);
+                }
+            }
+        }
+
+        // Check if the player has won the game
+        function checkGameStatus() {
+            if (shipsRemaining === 0) {
+                alert('Congratulations! You sank all the ships!');
+                initGrid();
+                renderGrid();
+                shipsRemaining = SHIP_COUNT;
+            }
+        }
+
+        // Handle cell click event
+        function handleCellClick(event) {
+            const row = event.target.dataset.row;
+            const col = event.target.dataset.col;
+
+            if (!grid[row][col].isHit) {
+                grid[row][col].isHit = true;
+
+                if (grid[row][col].isShip) {
+                    shipsRemaining--;
+                }
+
+                renderGrid();
+                checkGameStatus();
+            }
+        }
+
+        // Start the game
+        function startGame() {
+            initGrid();
+            renderGrid();
+        }
+
+        startGame();
+    </script>
+</body>
+</html>
