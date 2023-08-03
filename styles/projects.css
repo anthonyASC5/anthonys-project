@@ -17,7 +17,6 @@ body {
 
 
 #logo {
-    margin: auto;
 
 }
 
@@ -29,6 +28,32 @@ body {
 
 .project{
     background-color: rgb(78, 76, 74);
+}
+
+.websites{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#site{
+    width: 500px;
+    background-color: rgb(78, 76, 74);
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: row;
+    margin: 10px;
+    padding: 10px;
+}
+
+#jobs365{
+    width: 480px;
+    background-color: rgb(87, 87, 87);
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: row;
+    margin: 10px;
+    padding: 20px;
 }
 
 @media (max-width:900px) {

@@ -2,6 +2,7 @@ body {
     background-color: rgb(249, 248, 247);
     margin-left: 50px;
     margin-right: 50px;
+    background-color: #252525;
 }
 
 /*header*/
@@ -171,7 +172,7 @@ body {
 .atitle {
     font-family: 'Unbounded', cursive;
     color: aliceblue;
-    font-size: 50px;
+    font-size: 45px;
 }
 
 #home {

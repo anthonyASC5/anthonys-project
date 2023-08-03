@@ -36,6 +36,20 @@ body {
     font-family: 'Unbounded', cursive;
     color: antiquewhite;
     text-align: center;
+
+}
+
+#message{
+    font-family: 'Unbounded', cursive;
+    color: antiquewhite;
+    text-align: center;
+    line-height: 150%;
+    font-size: 20px;
+   padding-left: 230px;
+   padding-right: 230px;
+
+
+
 }
 
 #home {
@@ -52,4 +66,26 @@ body {
     flex-wrap: wrap;
     margin-left: 350px;
     margin-right: 350px;
+}
+
+
+@media (max-width:900px) {
+
+    html,
+    .media,
+    p {
+        font-size: 70%;
+    }
+
+    .navlist ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .asc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
