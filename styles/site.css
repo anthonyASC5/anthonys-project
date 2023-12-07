@@ -133,7 +133,7 @@ body {
 /** image with caption(asc)**/
 
 #asc {
-    width: 50%;
+    width: 40%;
 }
 
 #asc,
@@ -145,25 +145,29 @@ body {
 .asc {
     display: flex;
     flex-direction: row;
-    gap: 50px;
     align-items: center;
     background-color: rgb(52, 52, 52);
-    margin: 10px;
+    text-align: center;
+    margin: 40px;
 }
 
 #caption {
     background-color: rgb(52, 52, 52);
     color: aliceblue;
     font-size: 20px;
-    padding: 25px;
     font-family: 'Unbounded', cursive;
+    line-height: 26px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: justify;
+  text-justify: inter-word;
+
 }
 
 #caption2 {
     background-color: rgb(52, 52, 52);
     color: aliceblue;
     font-size: 20px;
-    padding: 25px;
     border-radius: 15px;
     font-family: 'Unbounded', cursive;
 }
@@ -172,6 +176,14 @@ body {
     font-family: 'Unbounded', cursive;
     color: aliceblue;
     font-size: 45px;
+    margin: 1%;
+    padding-bottom: 20px;
+
+}
+
+.box1{
+    background-color: rgb(52, 52, 52);
+    margin: 40px;
 }
 
 #home {

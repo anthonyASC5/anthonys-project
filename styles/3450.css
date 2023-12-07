@@ -7,6 +7,34 @@ body {
 #credit {
     font-family: 'Unbounded', cursive;
     color: antiquewhite;
+    text-align: center;
+}
+
+#credit2 {
+    font-family: 'Unbounded', cursive;
+    color: rgb(209, 209, 209);
+    font-size: 60px;
+    margin: 0%;
+}
+
+#koala{
+    background-color: rgb(72, 72, 72);
+    padding: 10px;
+    text-align: center;
+
+}
+
+#desc{
+    font-family: 'Unbounded', cursive;
+    color: antiquewhite;
+    font-size: 20px;
+    background-color: rgb(72, 72, 72);
+
+}
+
+#a3450{
+    display: block;
+    padding: 100px;
 }
 
 #title {
