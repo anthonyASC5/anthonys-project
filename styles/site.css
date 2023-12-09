@@ -183,7 +183,7 @@ body {
 
 .box1{
     background-color: rgb(52, 52, 52);
-    margin: 40px;
+    margin: 4px;
 }
 
 #home {
@@ -250,4 +250,21 @@ body {
         flex-direction: column;
         justify-content: center;
     }
+}
+
+.netflix-button {
+    background-color: #E50914; /* Netflix red */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* To apply padding and height */
+    text-align: center;
+}
+
+.netflix-button:hover {
+    background-color: #f40612; /* Slightly darker red on hover */
 }
