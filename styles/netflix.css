@@ -7,7 +7,14 @@
 
 body, html {
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+img {
+    transition: transform 0.3s;
 }
 
 .navbar {
@@ -29,27 +36,43 @@ body, html {
 
 .navbar ul li {
     padding: 0 10px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
     margin: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .main-content {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('/images/headshotfornetflix.JPG');
-    background-size: cover;
-    background-position: center center;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     z-index: 1;
+    overflow: hidden; /* To prevent the image from exceeding the div */
 }
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will cover the entire div without stretching the image */
+    z-index: -1; /* Set image behind the content */
+    font-family: 'Outfit', sans-serif;
+    padding-bottom: 15px;
+
+}
+
+/* Your existing CSS for .overlay, .showcase, and other classes */
+
 
 .overlay, .image-container .overlay {
     position: absolute;
@@ -69,6 +92,8 @@ body, html {
     color: #E50914; /* Netflix red for titles */
     margin-bottom: 1rem;
     font-size: 3rem;
+    font-family: 'Outfit', sans-serif;
+
 }
 
 .showcase h2 {
@@ -116,31 +141,29 @@ body, html {
     margin-bottom: 1rem;
 }
 
-.content-section {
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping to next line */
-    justify-content: space-around; /* Space out the sections */
-    padding: 4rem 0;
-    background: #000; /* Black background */
+
+#episodes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    width: 90%;
+    max-width: 90%; /* Adjust as needed */
+    margin-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    
+
 }
-
-.section {
-    width: calc(33.333% - 2rem); /* Adjust width for 3 items per row, accounting for margin */
-    margin: 1rem;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-/* Rest of your CSS remains unchanged */
-
 
 .image-container {
     position: relative;
     overflow: hidden;
+    width: calc(50% - 10px); /* 50% width with a small margin between images */
+    margin-bottom: 20px; /* Adjust the margin between rows */
 }
 
 .image-container img {
     width: 100%;
-    display: block;
     transition: transform 0.5s ease;
     border-radius: 4px;
 }
@@ -151,9 +174,14 @@ body, html {
     opacity: 0;
     transition: opacity 0.5s ease;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .image-container:hover .overlay {
@@ -163,4 +191,100 @@ body, html {
 .image-container:hover .text {
     transform: translateY(0);
     opacity: 1;
+}
+
+#Netflix {
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    color: azure;
+    padding-left: 20px;
+    font-family: 'Outfit', sans-serif;
+    text-decoration: underline rgba(140, 1, 1, 0.552); /* Add a red underline to the text */
+}
+
+
+.text {
+    transform: translateY(20px);
+    opacity: 0;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+#featured-episode {
+    display: flex;
+    background: #8a0101;
+    color: #fff; /* Text color */
+    align-items: center;
+    margin-bottom: 50px;
+    background: rgba(0, 0, 0, 0.8);
+
+}
+
+
+.coalaposter{
+    padding: 5px;
+    
+}
+
+#featured-episode h2 {
+    font-size: 30px; /* Adjust the font size */
+    margin-bottom: 10px;
+    color: #E50914; /* Netflix red for titles */
+    background: rgba(0, 0, 0, 0.8);
+
+}
+
+#featured-episode h1 {
+    font-size: 20px; /* Adjust the font size */
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.8);
+
+}
+
+#featured-episode p {
+    font-size: 18px; /* Adjust the font size */
+    background-color: #181818;
+    background: rgba(0, 0, 0, 0.8);
+
+
+}
+
+.description{
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.8);
+
+}
+  
+  /* Add any other styles you need for .image-container, .overlay, .text, and .section-image */
+  .episode-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #181818;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+}
+
+.episode-container img {
+    max-width: 25%;
+    transition: transform 0.3s;
+    background-color: #181818;
+
+}
+
+.episode-container img:hover {
+    transform: scale(1.05);
+    background-color: #181818;
+
+}
+
+#proj {
+    margin: 20px; /* Adjust the padding as needed */
 }
