@@ -5,7 +5,8 @@
     background-color: #181818;
 }
 
-body, html {
+body,
+html {
     height: 100%;
 }
 
@@ -35,7 +36,7 @@ img {
 }
 
 .navbar ul li {
-    padding:2px;
+    padding: 2px;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
 
@@ -58,24 +59,31 @@ img {
     justify-content: center;
     color: white;
     z-index: 1;
-    overflow: hidden; /* To prevent the image from exceeding the div */
+    overflow: hidden;
+    /* To prevent the image from exceeding the div */
 }
 
 .background-image {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This will cover the entire div without stretching the image */
-    z-index: -1; /* Set image behind the content */
+    object-fit: cover;
+    /* This will cover the entire div without stretching the image */
+    z-index: -1;
+    /* Set image behind the content */
     font-family: 'Outfit', sans-serif;
     padding-bottom: 15px;
 
 }
 
 /* Your existing CSS for .overlay, .showcase, and other classes */
+#logo {
+    background: none;
 
+}
 
-.overlay, .image-container .overlay {
+.overlay,
+.image-container .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -84,22 +92,30 @@ img {
     background: rgba(0, 0, 0, 0.6);
 }
 
-.showcase, .text {
+.showcase,
+.text {
     text-align: center;
     z-index: 2;
+    background: none;
 }
 
-.showcase h1, .text h2 {
-    color: #E50914; /* Netflix red for titles */
+.showcase h1,
+.text h2 {
+    color: #E50914;
+    /* Netflix red for titles */
     margin-bottom: 1rem;
     font-size: 3rem;
     font-family: 'Outfit', sans-serif;
+    background: none;
+
 
 }
 
 .showcase h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    background: none;
+
 }
 
 .showcase p {
@@ -107,13 +123,15 @@ img {
     width: 45rem;
     margin: auto;
     line-height: 1.6;
+    background: none;
+
 }
 
 .button {
-    background-color: #E50914;
+    background-color: #ff4851;
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 15px;
+    font-size: 30px;
     color: white;
     margin: 1rem;
     cursor: pointer;
@@ -123,6 +141,10 @@ img {
 .button:hover {
     background-color: #f40612;
 }
+
+
+
+
 
 .button:not(:last-child) {
     margin-right: 0.5rem;
@@ -149,18 +171,21 @@ img {
     flex-wrap: wrap;
     padding-bottom: 10px;
     width: 90%;
-    max-width: 90%; /* Adjust as needed */
+    max-width: 90%;
+    /* Adjust as needed */
     margin-left: 15px;
     font-family: 'Poppins', sans-serif;
-    
+
 
 }
 
 .image-container {
     position: relative;
     overflow: hidden;
-    width: calc(50% - 10px); /* 50% width with a small margin between images */
-    margin-bottom: 20px; /* Adjust the margin between rows */
+    width: calc(50% - 10px);
+    /* 50% width with a small margin between images */
+    margin-bottom: 20px;
+    /* Adjust the margin between rows */
 }
 
 .image-container img {
@@ -200,7 +225,8 @@ img {
     color: azure;
     padding-left: 20px;
     font-family: 'Outfit', sans-serif;
-    text-decoration: underline rgba(140, 1, 1, 0.552); /* Add a red underline to the text */
+    text-decoration: underline rgba(140, 1, 1, 0.552);
+    /* Add a red underline to the text */
 }
 
 
@@ -219,7 +245,8 @@ img {
 #featured-episode {
     display: flex;
     background: #8a0101;
-    color: #fff; /* Text color */
+    color: #fff;
+    /* Text color */
     align-items: center;
     margin-bottom: 50px;
     background: rgba(0, 0, 0, 0.8);
@@ -227,44 +254,48 @@ img {
 }
 
 
-.coalaposter{
+.coalaposter {
     padding: 5px;
-    
+
 }
 
 #featured-episode h2 {
-    font-size: 30px; /* Adjust the font size */
+    font-size: 30px;
+    /* Adjust the font size */
     margin-bottom: 10px;
-    color: #E50914; /* Netflix red for titles */
+    color: #E50914;
+    /* Netflix red for titles */
     background: rgba(0, 0, 0, 0.8);
 
 }
 
 #featured-episode h1 {
-    font-size: 20px; /* Adjust the font size */
+    font-size: 20px;
+    /* Adjust the font size */
     margin-bottom: 10px;
     background: rgba(0, 0, 0, 0.8);
 
 }
 
 #featured-episode p {
-    font-size: 18px; /* Adjust the font size */
+    font-size: 18px;
+    /* Adjust the font size */
     background-color: #181818;
     background: rgba(0, 0, 0, 0.8);
 
 
 }
 
-.description{
+.description {
     font-family: 'Poppins', sans-serif;
     padding: 10px;
     margin: 20px;
     background: rgba(0, 0, 0, 0.8);
 
 }
-  
-  /* Add any other styles you need for .image-container, .overlay, .text, and .section-image */
-  .episode-container {
+
+/* Add any other styles you need for .image-container, .overlay, .text, and .section-image */
+.episode-container {
     display: flex;
     flex-wrap: wrap;
     background-color: #181818;
@@ -286,5 +317,6 @@ img {
 }
 
 #proj {
-    margin: 20px; /* Adjust the padding as needed */
+    margin: 20px;
+    /* Adjust the padding as needed */
 }
