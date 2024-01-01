@@ -136,10 +136,18 @@ img {
     margin: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+
 }
 
 .button:hover {
     background-color: #f40612;
+}
+
+#cs{
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 
@@ -285,6 +293,9 @@ img {
 
 
 }
+#mylist{
+    padding: none;
+}
 
 .description {
     font-family: 'Poppins', sans-serif;
@@ -299,16 +310,18 @@ img {
     display: flex;
     flex-wrap: wrap;
     background-color: #181818;
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
+    
 }
 
-.episode-container img {
+/* .episode-container img {
     max-width: 45%;
     transition: transform 0.3s;
     background-color: #181818;
+    
 
-}
+} */
 
 .episode-container img:hover {
     transform: scale(1.05);
