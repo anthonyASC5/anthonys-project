@@ -26,6 +26,7 @@ img {
     top: 0;
     width: 100%;
     z-index: 1000;
+    padding-bottom: 0;
 }
 
 .navbar ul {
@@ -34,8 +35,9 @@ img {
 }
 
 .navbar ul li {
-    padding: 0 10px;
+    padding:2px;
     font-family: 'Poppins', sans-serif;
+    font-size: 25px;
 
 }
 
