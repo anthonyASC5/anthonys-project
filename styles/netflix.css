@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     padding: 0;
-    margin: 0;
+    margin: 0%;
     background-color: #181818;
 }
 
@@ -9,6 +9,7 @@ body,
 html {
     height: 100%;
 }
+
 
 img:hover {
     transform: scale(1.05);
@@ -333,3 +334,86 @@ img {
     margin: 20px;
     /* Adjust the padding as needed */
 }
+
+
+/* RESPONSIVE */
+/* Default styles for larger screens */
+/* ... Your existing CSS ... */
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1200px) {
+    .navbar {
+        flex-direction: row; /* Reset the navigation bar to a row layout */
+        justify-content: space-between; /* Add space between the logo and the hamburger menu */
+        padding: 1rem;
+    }
+
+    .navbar ul {
+        display: none; /* Hide the navigation links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 4rem; /* Adjust the distance from the top */
+        right: 1rem; /* Adjust the distance from the right */
+        background: #000; /* Background color for the menu */
+        z-index: 1;
+        width: 200px; /* Adjust the menu width as needed */
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the navigation links when active */
+    }
+
+    .navbar ul li {
+        margin: 0.5rem 0;
+    }
+
+    .showcase h2 {
+        font-size: 2rem;
+    }
+
+    .showcase p#cs {
+        font-size: 1rem;
+    }
+
+    .button {
+        font-size: 20px;
+    }
+
+   div.coalaposter img{
+    max-width: 100%;
+    height: auto;
+   }
+
+   .episode-container {
+    flex-direction: column; /* Change to a column layout for smaller screens */
+}
+
+.episode-container img {
+    max-width: 100%;
+    height: auto;
+    padding: none;
+    position: relative;
+    margin-top: 10px; /* Add margin to separate images from text */
+}
+
+    .description p,
+    p,
+    .showcase h2,
+    .showcase p#cs,
+    #Netflix,
+    #featured-episode h2,
+    #featured-episode h1,
+    #featured-episode p {
+        font-size: 14px; /* Adjust the font size as needed */
+    }
+
+    /* Make images responsive by setting max-width to 100% and auto height */
+   
+    .image-container img {
+        max-width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+}
+
+
