@@ -1,0 +1,22 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+canvas {
+    border: 1px solid #000;
+    width: 300px; /* Adjust the canvas width as needed */
+    height: 300px; /* Adjust the canvas height as needed */
+  }
