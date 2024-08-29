@@ -317,6 +317,48 @@ img {
 
 }
 
+#featured-episodedish {
+    color: #151515;
+    /* Text color */
+    lign-items: center;
+    padding-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
+
+#featured-episodedish img{
+    size: 20px;
+    padding: 20px;
+    
+}
+
+#dishcraft img {
+    width: 20%;  /* or any other percentage or fixed size you prefer */
+    height: auto; /* maintains the aspect ratio */
+    
+    
+}
+
+#featured-episodedish h1{
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    margin: 20px; 
+    font-size: 50px;
+
+}
+
+#featured-episodedish h2{
+    font-family:'Segoe UI', sans-serif;
+    padding: 10px;
+    margin: 20px; 
+
+}
+
+
+
 
 
 #featured-episode {
@@ -387,6 +429,7 @@ img {
     padding: none;
     width: 20%;
 }
+
 
 .description {
     font-family: 'Poppins', sans-serif;
@@ -487,7 +530,9 @@ img {
     .showcase h2,
     .showcase p#cs,
     #Netflix,
-    #featured-episode h2,
+    #featured-episodedish h2,
+    #featured-episodedish h1,
+    #featured-episodedish p,
     #featured-episode h1,
     #featured-episode p {
         font-size: 14px; /* Adjust the font size as needed */
