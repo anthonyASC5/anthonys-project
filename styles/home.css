@@ -38,18 +38,21 @@ img {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    position: fixed;
+    
     top: 0;
     width: 100%;
     z-index: 1000;
     padding-bottom: 0;
     background-color: #ff8000;
+    font-family:'Segoe UI', sans-serif;
+
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
     margin-right: 30px;
+    align-items: center;
 
 }
 
@@ -57,6 +60,7 @@ img {
     padding: 2px;
     font-family: 'Poppins', sans-serif;
     font-size: 25px;
+    align-items: center;
 
 }
 
@@ -69,8 +73,8 @@ img {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #ddd;
-    color: red; /* Add this line to change text color to red on hover */
+    background-color: #ff8000;
+    color: rgb(255, 255, 255); /* Add this line to change text color to red on hover */
 }
 
 
@@ -79,15 +83,18 @@ img {
 /* Add this CSS for dropdown menu */
 /* Dropdown Button */
 .dropbtn {
-    padding: 20px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 10px;
     border: none;
+    background-color: #ff8000;
+
 
   }
   
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
-    position: relative;
+    align-items: end;
+    margin-left: 1000px;
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -95,28 +102,26 @@ img {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
   
   /* Links inside the dropdown */
   .dropdown-content a {
-    color: rgb(247, 72, 72);
-    padding: 16px;
+    color:#000;
+    padding: 10px;
     text-decoration: none;
     display: block;
     background-color: #f1f1f1;
   }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {}
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #ff0d0d;}
+  .dropdown:hover .dropbtn {background-color: #ffffff;}
 
 
 .main-content {
@@ -127,7 +132,7 @@ img {
     align-items: center;
     justify-content: center;
     color: rgb(255, 255, 255);
-    background-color: orange;
+   background-color: #ff8000;
     z-index: 1;
     overflow: hidden;
     /* To prevent the image from exceeding the div */
@@ -139,12 +144,13 @@ img {
     height: 100%;
     object-fit: cover;
     /* This will cover the entire div without stretching the image */
-    z-index: -1;
-    /* Set image behind the content */
+  
+    /* Set image behind the content 
     font-family: 'Outfit', sans-serif;
     padding-bottom: 15px;
 
-} */
+} 
+*/
 
 /* Your existing CSS for .overlay, .showcase, and other classes */
 #logo {
@@ -216,13 +222,14 @@ img {
 }
 
 #cs{
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-family: 'Outfit', sans-serif;
+    
 
 }
 #cs2{
-    font-size: 40px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 70px;
+    font-family: "Oi", serif;
 
 }
 
@@ -305,11 +312,11 @@ img {
 
 #Netflix {
     font-size: 50px;
-    font-family: 'Poppins', sans-serif;
     color: azure;
-    padding-left: 20px;
-    font-family: 'Outfit', sans-serif;
-    text-decoration: underline rgba(140, 1, 1, 0.552);
+    text-align: center;
+    font-family:'Segoe UI', sans-serif;
+    font-weight: bold
+
     /* Add a red underline to the text */
 }
 
@@ -327,12 +334,12 @@ img {
 #featured-episodedish {
     color: #151515;
     /* Text color */
-    lign-items: center;
+    align-items: center;
     padding-bottom: 10px;
     align-items: center;
     text-align: center;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
     
 }
 
@@ -439,7 +446,8 @@ img {
 
 
 .description {
-    font-family: 'Poppins', sans-serif;
+    font-family:'Segoe UI', sans-serif;
+
     padding: 10px;
     margin: 20px; 
 
@@ -447,7 +455,8 @@ img {
 
 /* Add any other styles you need for .image-container, .overlay, .text, and .section-image */
 .episode-container {
-    background-color: #181818;
+    background-color: #ff8000;;
+
     padding: 20px;
     
 }
@@ -462,13 +471,14 @@ img {
 
 .episode-container img:hover {
     transform: scale(1.05);
-    background-color: #181818;
+   
 
 }
 
 #proj {
-    margin: 20px;
+    margin: 30px;
     /* Adjust the padding as needed */
+    size: 10px;
 }
 
 
