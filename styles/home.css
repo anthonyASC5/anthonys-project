@@ -350,7 +350,20 @@ img {
 }
 
 #dishcraft img {
+    width: 10%;  /* or any other percentage or fixed size you prefer */
+    height: auto; /* maintains the aspect ratio */
+    
+    
+}
+#dishcraft1 img {
     width: 20%;  /* or any other percentage or fixed size you prefer */
+    height: auto; /* maintains the aspect ratio */
+    
+    
+}
+
+#dishcraft2 img {
+    width: 70%;  /* or any other percentage or fixed size you prefer */
     height: auto; /* maintains the aspect ratio */
     
     
