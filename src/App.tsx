@@ -26,7 +26,7 @@ const PROJECTS: ProjectInfo[] = [
   { id: 'paath', label: 'Paath', subLabel: 'Financial App', url: 'paath.cornell.edu', icon: <span className="text-3xl">💰</span> },
   { id: 'slicegeist', label: 'SliceGeist', subLabel: 'Strategy Game', url: 'slicegeist.ghost-train.io', img: 'https://minecraft.wiki/images/Ghast_JE2_BE2.png' },
   { id: 'dishcraft', label: 'Dishcraft', subLabel: 'Culinary AI', url: 'dishcraft.kitchen.ai', img: 'https://minecraft.wiki/images/Raw_Beef_JE3_BE2.png' },
-  { id: 'karebare', label: 'KareBare', subLabel: 'Online Literacy', url: 'karebare.edu', img: 'https://www.nicepng.com/png/full/190-1905759_minecraft-heart-8-bit-heart-transparent.png' },
+  { id: 'karebare', label: 'KareBare', subLabel: 'Online Literacy', url: 'karebare.edu', img: 'https://www.nicepng.com/png/full/190-1905759_minecraft-heart-8-bit-heart-transparent.pngr' },
   { id: 'coala', label: 'Coala', subLabel: 'LDR Project', url: 'coala.ldr', icon: <span className="text-3xl">🐨</span> },
   { id: 'cmp', label: 'Music Prod', subLabel: 'Web Dev', url: 'cornellmusicproduction.com', icon: <span className="text-3xl">💿</span> },
 ];
