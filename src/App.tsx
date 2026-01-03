@@ -178,13 +178,103 @@ const App: React.FC = () => {
 
     if (view === 'resume') return (
       <Window title="Anthony_Lewis_Lall_Resume.pdf" type="preview" onClose={onHome}>
-        <div className="bg-white w-full max-w-[680px] min-h-full shadow-2xl p-12 text-[11px] font-serif mx-auto">
-          <div className="text-center mb-6"><h1 className="text-xl font-bold">Anthony Lewis Lall</h1><p>all266@cornell.edu | 347-863-7729</p></div>
-          <section className="mb-4"><h2 className="font-bold border-b mb-2 uppercase">Education</h2><p><strong>Cornell University</strong>, B.S. in ISST, May 2025</p></section>
-          <section className="mb-4"><h2 className="font-bold border-b mb-2 uppercase">Experience</h2><p><strong>RM Logitech Inc</strong> - Executive Intern (2024-Present)</p><p><strong>Truth In Common</strong> - UI/UX Intern (2024)</p><p><strong>ShotbyALL</strong> - Digital Media Founder (2022-Present)</p></section>
-          <section className="mb-4"><h2 className="font-bold border-b mb-2 uppercase">Skills</h2><p>JS, Python, React, Figma, Spline API, User Research</p></section>
-        </div>
-      </Window>
+  <div className="bg-white w-full max-w-[720px] min-h-full shadow-2xl p-12 text-[11px] font-serif mx-auto leading-relaxed">
+    
+    {/* Header */}
+    <div className="text-center mb-6">
+      <h1 className="text-xl font-bold">Anthony Lewis Lall</h1>
+      <p>
+        all266@cornell.edu | 347-863-7729 <br />
+        <a href="https://www.linkedin.com/in/anthonylewislall" className="underline">LinkedIn</a>
+      </p>
+    </div>
+
+    {/* Education */}
+    <section className="mb-4">
+      <h2 className="font-bold border-b mb-2 uppercase">Education</h2>
+      <p><strong>Cornell University, College of Engineering</strong></p>
+      <p>B.S. in Information Science, Systems, and Technology (ISST), May 2025</p>
+      <p className="italic">Concentration: Interactive Technologies & UI/UX Design</p>
+      <p>Member of Der Hexenkreis Senior Honors Society (DH)</p>
+    </section>
+
+    {/* Technical Skills */}
+    <section className="mb-4">
+      <h2 className="font-bold border-b mb-2 uppercase">Technical Skills</h2>
+      <p><strong>Programming:</strong> JavaScript, Python, TypeScript, Go, HTML, CSS, SQL, Git, OCaml</p>
+      <p><strong>Frameworks & Libraries:</strong> React, D3, P5.js, Next.js, Bootstrap, NumPy, Pandas</p>
+      <p><strong>Web Development:</strong> Front-end Development, Responsive Design, CMS</p>
+    </section>
+
+    {/* Design Skills */}
+    <section className="mb-4">
+      <h2 className="font-bold border-b mb-2 uppercase">Design Skills</h2>
+      <p><strong>UI/UX Design:</strong> Wireframing, Prototyping (Figma), Interaction Design, Gaming Design, Spline API</p>
+      <p><strong>User Research & Testing:</strong> Usability Testing, User Surveys, Feedback Analysis</p>
+      <p><strong>Visual Design:</strong> Typography, Iconography, Responsive Design, Color Theory</p>
+    </section>
+
+    {/* Work Experience */}
+    <section className="mb-4">
+      <h2 className="font-bold border-b mb-2 uppercase">Work Experience</h2>
+
+      <p><strong>Executive Intern</strong>, RM Logitech Inc (Sep 2024 – Present)</p>
+      <ul className="list-disc ml-4 mb-2">
+        <li>Collaborated directly with the executive team on digital project support and IT initiatives.</li>
+        <li>Assisted in modernizing internal workflows through research, documentation, and tool integration.</li>
+        <li>Applied technical skills to support operations, product insights, and internal systems.</li>
+      </ul>
+
+      <p><strong>UI/UX Intern</strong>, Truth In Common (Jun – Sep 2024)</p>
+      <ul className="list-disc ml-4 mb-2">
+        <li>Refined website navigation and layout using UX principles, improving usability and SEO.</li>
+        <li>Produced 5+ wireframes based on competitor research and user feedback.</li>
+      </ul>
+
+      <p><strong>Founder</strong>, ShotbyALL (Jan 2022 – Present)</p>
+      <ul className="list-disc ml-4 mb-2">
+        <li>Launched and scaled a digital media startup from $500 in 2022 to $5,000+ in early 2025.</li>
+        <li>Completed 200+ paid photography sessions across graduation, portrait, and event projects.</li>
+      </ul>
+
+      <p><strong>Teaching Fellow</strong>, All Star Code (Jun – Aug 2020)</p>
+      <ul className="list-disc ml-4">
+        <li>Coached students in web animation, game design, and front-end languages including JS, HTML, and CSS.</li>
+      </ul>
+    </section>
+
+    {/* Projects */}
+    <section className="mb-4">
+      <h2 className="font-bold border-b mb-2 uppercase">Projects</h2>
+      <ul className="list-disc ml-4">
+        <li><strong>UI/UX Designer, Paath:</strong> Led UI/UX and wireframing for a student budgeting app.</li>
+        <li><strong>UI/UX Designer, KareBare:</strong> Designed chatbot experience to improve social media literacy.</li>
+        <li><strong>Front-end Developer, Cornell Music Production:</strong> Maintained and enhanced club website using PHP, HTML, CSS, and JavaScript.</li>
+      </ul>
+    </section>
+
+    {/* Leadership */}
+    <section className="mb-4">
+      <h2 className="font-bold border-b mb-2 uppercase">Leadership & Professional Development</h2>
+      <p><strong>Management Leadership for Tomorrow Fellow</strong> (Mar 2023 – Present)</p>
+      <p className="mb-2">Career preparation fellowship focused on professional development.</p>
+
+      <p><strong>CSMORE Summer Program</strong>, Cornell University (Jul – Aug 2022)</p>
+      <p>Completed coursework in Discrete Structures, Programming, and Data Structures.</p>
+    </section>
+
+    {/* Honors */}
+    <section>
+      <h2 className="font-bold border-b mb-2 uppercase">Honors & Awards</h2>
+      <ul className="list-disc ml-4">
+        <li><strong>Human Spirit Award</strong> (Cornell University): Recognized for entrepreneurial impact through ShotbyALL.</li>
+        <li><strong>Cornell Traditions Fellow:</strong> Four-year fellow with 1000+ hours of paid work and service.</li>
+      </ul>
+    </section>
+
+  </div>
+</Window>
+
     );
 
     if (view === 'brand') return (
