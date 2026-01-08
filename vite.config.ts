@@ -4,6 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/anthonys-project/', // must match repo name exactly (lowercase)
   plugins: [react()],
   resolve: {
     alias: {
