@@ -1,28 +1,26 @@
-import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  root: 'src',
-  base: '/anthonys-project/',
   plugins: [react()],
-  build: {
-    outDir: '../dist',
-    emptyOutDir: true,
-  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-    }
+      '@': path.resolve(__dirname, './src'),
+    },
   },
   server: {
-    port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/api')
-      }
-    }
-  }
+    port: 3000,
+    host: true,
+    open: true,
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'esbuild',
+  },
+  preview: {
+    port: 3000,
+  },
 });

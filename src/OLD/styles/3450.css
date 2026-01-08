@@ -1,0 +1,102 @@
+body {
+    background-color: rgb(52, 51, 51);
+}
+
+
+
+#credit {
+    font-family: 'Unbounded', cursive;
+    color: antiquewhite;
+    text-align: center;
+}
+
+#credit2 {
+    font-family: 'Unbounded', cursive;
+    color: rgb(209, 209, 209);
+    font-size: 60px;
+    margin: 0%;
+}
+
+#koala{
+    background-color: rgb(72, 72, 72);
+    padding: 10px;
+    text-align: center;
+
+}
+
+#desc{
+    font-family: 'Unbounded', cursive;
+    color: antiquewhite;
+    font-size: 20px;
+    background-color: rgb(72, 72, 72);
+
+}
+
+#a3450{
+    display: block;
+    padding: 100px;
+}
+
+#title {
+    font-family: 'Unbounded', cursive;
+    color: rgb(250, 222, 215);
+    font-size: 20px;
+}
+
+
+#home {
+    font-family: 'Unbounded', cursive;
+    color: rgb(131, 131, 131);
+
+}
+
+.project{
+    background-color: rgb(78, 76, 74);
+}
+
+.websites{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#site{
+    width: 500px;
+    background-color: rgb(78, 76, 74);
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: row;
+    margin: 10px;
+    padding: 10px;
+}
+
+#jobs365{
+    width: 480px;
+    background-color: rgb(87, 87, 87);
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: row;
+    margin: 10px;
+    padding: 20px;
+}
+
+@media (max-width:900px) {
+
+    html,
+    .media,
+    p {
+        font-size: 70%;
+    }
+
+    .navlist ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .asc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

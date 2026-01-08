@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font is loaded via index.html <link> tag for better performance */
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fbfbfd;
+  color: #1d1d1f;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

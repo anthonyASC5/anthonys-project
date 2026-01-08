@@ -1,19 +1,20 @@
+import React from 'react';
 
 const ProjectLink = ({ href }: { href: string }) => (
-  <a 
-    href={href} 
-    target="_blank" 
-    rel="noopener noreferrer" 
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
     className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-bold text-sm hover:bg-gray-800 transition-colors shadow-lg"
   >
-    LINK TO PROJECT 
+    LINK TO PROJECT
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   </a>
 );
 
-export const KareBareProject = () => (
+export const KareBareProject: React.FC = () => (
   <div className="bg-white text-gray-900 p-8 md:p-12 leading-relaxed max-w-3xl mx-auto space-y-12">
     <header className="space-y-4">
       <h1 className="text-4xl font-black tracking-tighter text-pink-500 uppercase">KAREBARE (App Development Project) 2024</h1>
@@ -22,7 +23,7 @@ export const KareBareProject = () => (
         <ProjectLink href="https://www.figma.com/proto/UZEY8tk5c8DYBgbSsmPeYU/4125-APP-PROTOTYPE?node-id=2044-217&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2044%3A136" />
       </div>
     </header>
-    
+
     <section className="space-y-4">
       <p className="text-xl font-bold leading-snug">
         KareBare is a virtual chat box designed to improve social media literacy and promote healthy online interactions for young users.
@@ -75,7 +76,7 @@ export const KareBareProject = () => (
   </div>
 );
 
-export const PaathProject = () => (
+export const PaathProject: React.FC = () => (
   <div className="bg-white text-gray-900 p-8 md:p-12 leading-relaxed max-w-3xl mx-auto space-y-12">
     <header className="space-y-4">
       <h1 className="text-5xl font-black tracking-tighter text-blue-600 uppercase">PAATH</h1>
@@ -101,10 +102,64 @@ export const PaathProject = () => (
         <p className="text-sm text-gray-600">Standard banking apps don't account for variable student expenses like meal plans, laundry, and campus-related discretionary spending.</p>
       </div>
     </div>
+
+    <section className="bg-blue-50 p-8 rounded-3xl border border-blue-100 space-y-8">
+      <div>
+        <h3 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">Project Solution: Financial Management App</h3>
+        <ul className="space-y-3 text-sm text-gray-800 list-none">
+          <li className="flex gap-3"><span className="text-blue-500 font-bold">•</span> <strong>Unified Dashboard:</strong> Effortless tracking of income, expenses, and budgets in a single interface.</li>
+          <li className="flex gap-3"><span className="text-blue-500 font-bold">•</span> <strong>Transaction & Portfolio:</strong> Detailed transaction history and income tracking with integrated investment overview.</li>
+          <li className="flex gap-3"><span className="text-blue-500 font-bold">•</span> <strong>Education:</strong> Tax preparation information and curated resources to build smart financial habits.</li>
+        </ul>
+      </div>
+
+      <div className="pt-6 border-t border-blue-200">
+        <h3 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">Student-focused Benefits</h3>
+        <ul className="space-y-3 text-sm text-gray-800 list-none">
+          <li className="flex gap-3"><span className="text-blue-500 font-bold">•</span> Promotes clear financial literacy by simplifying complex planning for students.</li>
+          <li className="flex gap-3"><span className="text-blue-500 font-bold">•</span> Reduces financial stress and saves time, helping build a secure, debt-free future.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section className="space-y-8">
+      <div>
+        <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-4">Project Monitoring and Control</h3>
+        <ul className="space-y-3 text-sm text-gray-600 list-none">
+          <li className="flex gap-3"><span className="opacity-40 font-bold">•</span> Utilized Gantt charts to visualize progress, identify dependencies, and manage deadlines across all phases.</li>
+          <li className="flex gap-3"><span className="opacity-40 font-bold">•</span> Conducted frequent team check-ins to address challenges and maintain alignment on tasks.</li>
+          <li className="flex gap-3"><span className="opacity-40 font-bold">•</span> Regularly reviewed the Work Breakdown Structure (WBS) to ensure consistency with objectives.</li>
+        </ul>
+        <div className="mt-6 p-5 bg-gray-50 rounded-2xl border border-gray-100 text-[13px] text-gray-600 leading-relaxed italic">
+          <span className="font-black text-gray-400 uppercase tracking-widest block text-[10px] mb-1">Challenge Intervention</span>
+          Proposed and implemented a shared project log and brief daily updates to increase team transparency and responsiveness.
+        </div>
+      </div>
+
+      <div className="pt-8 border-t border-gray-100">
+        <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Future Steps</h3>
+        <p className="text-lg font-bold text-gray-800">Conducting User Testing + In-depth Research</p>
+      </div>
+
+      <div className="pt-4 flex flex-col items-center">
+        <a
+          href="https://docs.google.com/presentation/d/1wtLbWRHrQRlIqy-R-7XxKGRDW8IpezLiyv5nU2Cf4Sg/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-sm transition-all hover:bg-blue-700 hover:shadow-2xl hover:scale-[1.02] active:scale-95 shadow-xl"
+        >
+          UX Research + Final Product Shipout
+
+          <span className="absolute -top-2 -right-2 bg-red-500 text-[10px] px-2 py-0.5 rounded-full animate-pulse">
+            Update
+          </span>
+        </a>
+      </div>
+    </section>
   </div>
 );
 
-export const SliceGeistProject = () => (
+export const SliceGeistProject: React.FC = () => (
   <div className="bg-white text-gray-900 p-8 md:p-12 leading-relaxed max-w-3xl mx-auto min-h-full space-y-12">
     <header className="space-y-4">
       <h1 className="text-6xl font-black tracking-tighter text-purple-600 uppercase">SLICEGEIST</h1>
@@ -134,7 +189,7 @@ export const SliceGeistProject = () => (
   </div>
 );
 
-export const DishcraftProject = () => (
+export const DishcraftProject: React.FC = () => (
   <div className="bg-stone-50 text-gray-900 p-8 md:p-12 leading-relaxed max-w-3xl mx-auto space-y-12">
     <header className="space-y-4">
       <h1 className="text-5xl font-black tracking-tighter text-emerald-600 uppercase">DISHCRAFT (COOKING APP)</h1>
@@ -143,15 +198,15 @@ export const DishcraftProject = () => (
         <ProjectLink href="https://www.figma.com/proto/YFtwBeITjWu9LrALLBuNkw/DISHCRAFT?node-id=29-255&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=29%3A255" />
       </div>
     </header>
-    
+
     <section className="space-y-6">
       <p className="text-xl font-bold leading-snug">
-        Introducing "Dishcraft"—the innovative culinary assistant that transforms your kitchen experience! 
+        Introducing "Dishcraft"—the innovative culinary assistant that transforms your kitchen experience!
         Still in production, with full details coming soon, Dishcraft is designed to revolutionize how you cook at home.
       </p>
       <p className="text-gray-600">
-        Whether you're a seasoned chef looking for new inspiration or a beginner unsure about combining flavors, 
-        Dishcraft makes meal planning effortless and exciting. Stay tuned for more information as we prepare to launch 
+        Whether you're a seasoned chef looking for new inspiration or a beginner unsure about combining flavors,
+        Dishcraft makes meal planning effortless and exciting. Stay tuned for more information as we prepare to launch
         Dishcraft and change the way you think about cooking!
       </p>
     </section>
@@ -169,7 +224,7 @@ export const DishcraftProject = () => (
       <div className="space-y-4">
         <h3 className="text-xs font-black uppercase tracking-widest text-stone-400">Context</h3>
         <p className="text-sm text-gray-600">
-          <strong>Problem:</strong> Home cooks find meal planning time-consuming and often struggle with inspiration.<br/><br/>
+          <strong>Problem:</strong> Home cooks find meal planning time-consuming and often struggle with inspiration.<br /><br />
           <strong>Goal:</strong> To simplify the meal planning process and inspire users with recipe suggestions.
         </p>
       </div>
@@ -184,7 +239,7 @@ export const DishcraftProject = () => (
   </div>
 );
 
-export const CoalaProject = () => (
+export const CoalaProject: React.FC = () => (
   <div className="bg-white text-gray-900 p-8 md:p-12 leading-relaxed max-w-3xl mx-auto space-y-12">
     <header className="space-y-4">
       <h1 className="text-5xl font-black tracking-tighter text-amber-600 uppercase">COALA (LDR PROJECT)</h1>
@@ -215,7 +270,7 @@ export const CoalaProject = () => (
   </div>
 );
 
-export const CmpProject = () => (
+export const CmpProject: React.FC = () => (
   <div className="bg-[#121212] text-white p-8 md:p-12 leading-relaxed max-w-3xl mx-auto space-y-12">
     <header className="space-y-4">
       <h1 className="text-5xl font-black tracking-tighter text-white uppercase">CORNELL MUSIC PRODUCTION</h1>
@@ -227,7 +282,7 @@ export const CmpProject = () => (
     </header>
     <section className="space-y-4">
       <p className="text-2xl font-bold leading-snug">The digital hub for Cornell's premier music production community.</p>
-      <p className="text-gray-400 italic">Maintained and improved the Cornell Music Production Club’s website using PHP, HTML, JavaScript, and CSS to provide a seamless experience for artists and producers.</p>
+      <p className="text-gray-400 italic">Maintained and improved the Cornell Music Production Club's website using PHP, HTML, JavaScript, and CSS to provide a seamless experience for artists and producers.</p>
     </section>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-white/10">
       <div className="space-y-4">
