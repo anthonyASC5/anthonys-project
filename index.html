@@ -1,16 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anthony Lall - UI/UX Designer & Software Developer Portfolio">
-    <title>Anthony Lall | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anthony Lall portfolio in a retro Windows 98 desktop interface.">
+  <title>Anthony Lall | Portfolio</title>
+  <!-- Shared site fonts and the main desktop shell assets load here before the app scripts boot. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./main/styles.css">
+  <script defer src="./main/intro.js"></script>
+  <script defer src="./main/script.js"></script>
 </head>
-<body class="m-0 p-0 overflow-x-hidden">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+<body>
+  <!-- The fixed system bar anchors global navigation while the desktop content scrolls underneath it. -->
+  <header class="system-bar load-reveal" style="--load-delay: 40ms" aria-label="Top system bar">
+    <div class="system-bar__inner">
+      <div class="system-bar__group">
+        <span class="system-bar__title">ANTHONY LALL</span>
+      </div>
+      <div class="system-bar__group system-bar__actions">
+        <!-- <button class="system-bar__action" type="button" data-open-window="finder">FINDER</button> -->
+        <button class="system-bar__action" type="button" data-open-window="photoeditor">PHOTO EDITOR</button>
+        <button class="system-bar__action" type="button" data-open-window="resume">RESUME</button>
+        <button class="system-bar__action" type="button" data-open-window="contact">CONTACT</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Guide: Portfolio layout structure and window containers -->
+  <div class="desktop-shell">
+    <!-- Section nav mirrors the main content order so the script can keep the breadcrumb in sync. -->
+    <aside class="section-nav load-reveal" style="--load-delay: 120ms" aria-label="Page sections">
+      <div class="section-nav__inner">
+        <button class="section-nav__button" type="button" data-scroll-to="overview">Me</button>
+        <button class="section-nav__button" type="button" data-scroll-to="blobbertrack-ad">Mobile App Dev</button>
+        <button class="section-nav__button" type="button" data-scroll-to="projects">My Projects</button>
+        <button class="section-nav__button" type="button" data-scroll-to="school-projects">School Projects</button>
+        <button class="section-nav__button" type="button" data-scroll-to="blobbertrack-ad2">Digital Media Startup</button>
+      </div>
+    </aside>
+    <main class="workspace">
+      <!-- Overview introduces the portfolio before users open any of the simulated app windows. -->
+      <section class="overview-panel card load-reveal" id="overview" data-breadcrumb="Overview" style="--load-delay: 160ms">
+        <div class="overview-panel__copy">
+          <p class="eyebrow">Portfolio</p>
+          <h1>Anthony Lall</h1>
+          <p class="overview-panel__title">Creative Developer + UI/UX Engineer</p>
+
+          <div class="mini-stack mini-stack--building" aria-label="What Anthony is building">
+            <p class="mini-stack__label">Skills:</p>
+            <ul>
+              <li>creative web apps</li>
+              <li>Prototyping</li>
+              <li>AI tools</li>
+              <li>interactive visuals</li>
+              <li>Web Dev</li>
+              <li>Computer Vision</li>
+            </ul>
+          </div>
+
+          <!-- Guide: Overview hero, skills, and current work tags -->
+          <div class="mini-stack mini-stack--current" aria-label="Current projects">
+            <p class="mini-stack__label">Currently Building:</p>
+            <ul class="tag-list">
+              <li class="tag-list__l4suite">L4 VFX Suite</li>
+              <li class="tag-list__ai">Designer @ AI Startup</li>
+              <li class="tag-list__mobile">Building First Mobile App</li>
+              <li class="tag-list__rml">Dev @RMLogitech</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="overview-panel__side">
+          <article class="overview-panel__feed">
+            <div class="overview-panel__feed-rule" aria-hidden="true"></div>
+          </article>
+
+          <div class="overview-panel__art" aria-hidden="true">
+            <div class="desktop-object">
+              <div class="desktop-object__screen">
+                <span class="desktop-object__badge">Me</span>
+                <!-- Guide: Overview hero, skills, and current work tags -->
+                <div class="desktop-object__icon" data-app-icon="me"></div>
+                <p>Pixel self portrait</p>
+                <div class="desktop-object__actions">
+                  <a class="activity-button" href="mailto:all266@cornell.edu">all266@cornell.edu</a>
+                  <a class="activity-button activity-button--blue" href="https://www.linkedin.com/in/anthonylewislall" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <button type="button" class="activity-button activity-button--orange" data-open-window="about">ABOUT ME</button>
+                  <button type="button" class="activity-button activity-button--red" data-open-window="resume">MY RESUME</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-section card blobbertrack-ad load-reveal" id="blobbertrack-ad" style="--load-delay: 340ms">
+        <div class="blobbertrack-ad__copy">
+          <p class="blobbertrack-ad__eyebrow">COMPUTER VISION MOBILE APP</p>
+          <h2 class="blobbertrack-ad__title">BLOBBERTRACK</h2>
+          <p class="blobbertrack-ad__text">Track motion in real time and turn movement into playful live visuals.</p>
+          <p class="blobbertrack-ad__text blobbertrack-ad__text--strong">Built for fast experiments, visual effects, and real-time interactive art. (In Progress / Beta)</p>
+        </div>
+        <!-- Guide: Blobbertrack promo section and media preview -->
+        <div class="blobbertrack-ad__device" aria-hidden="true">
+          <div class="blobbertrack-ad__phone">
+            <div class="blobbertrack-ad__phone-notch"></div>
+            <video
+              class="blobbertrack-ad__phone-video"
+              src="assets/videos/app.MP4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-section card load-reveal" id="projects" data-breadcrumb="Projects" style="--load-delay: 280ms">
+        <div class="section-head">
+          <p class="eyebrow">MY PROJECTS</p>
+        </div>
+        <!-- Guide: Desktop apps grid and active project tiles -->
+        <div class="project-groups">
+          <div class="project-group" id="l4suite" data-breadcrumb="L4 Suite">
+            <div class="project-group__head">
+          <h2 class="desktopapptitle">Currently Developing</h2>
+            </div>
+            <div class="app-grid" aria-label="Currently developing projects">
+              <button class="app-tile" type="button" data-project="blobtracker">
+                <span class="app-tile__icon" data-app-icon="blobtracker"></span>
+                <span class="app-tile__title">Blob Tracker</span>
+                <span class="app-tile__meta">Live</span>
+              </button>
+              <button class="app-tile" type="button" data-project="datamosh">
+                <span class="app-tile__icon" data-app-icon="datamosh"></span>
+                <span class="app-tile__title">Datamosh</span>
+                <span class="app-tile__meta">Build</span>
+              </button>
+              <button class="app-tile" type="button" data-project="l4vfx">
+                <span class="app-tile__icon" data-app-icon="l4vfx"></span>
+                <span class="app-tile__title">L4VFX</span>
+                <span class="app-tile__meta">VFX</span>
+              </button>
+              <button class="app-tile" type="button" data-project="lallsuite">
+                <span class="app-tile__icon" data-app-icon="lallsuite"></span>
+                <span class="app-tile__title">LALLSUITE</span>
+                <span class="app-tile__meta">Suite</span>
+              </button>
+              <button class="app-tile" type="button" data-project="audiomachine">
+                <span class="app-tile__icon" data-app-icon="audiomachine"></span>
+                <span class="app-tile__title">Audio Machine</span>
+                <span class="app-tile__meta">Audio</span>
+              </button>
+              <button class="app-tile" type="button" data-project="lanzoid">
+                <span class="app-tile__icon" data-app-icon="lanzoid"></span>
+                <span class="app-tile__title">Lanzoid</span>
+                <span class="app-tile__meta">3D</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guide: School projects card and logo launch buttons -->
+      <section class="workspace-section card load-reveal" id="school-projects" data-breadcrumb="School Projects" style="--load-delay: 320ms">
+        <div class="school-ad">
+          <div class="school-ad__copy">
+            <p class="school-ad__eyebrow">CORNELL ENGINEERING</p>
+            <h2 class="school-ad__title">SCHOOL PROJECTS</h2>
+            <p class="school-ad__title school-ad__title--sub">CLASS RESEARCH STUDIES</p>
+            <p class="school-ad__text">Portfolio work from school and class-based experiments.</p>
+          </div>
+          <div class="school-ad__panel">
+            <div class="project-group__head school-ad__panel-head">
+            <h2 class="desktopapptitle">School Projects</h2>
+            <p class="blobbertrack-ad__text">Select any project logo to open its case study.</p>
+            </div>
+            <div class="school-logo-grid" aria-label="School projects">
+              <button class="school-logo-item" type="button" data-project="paath" data-static-logo>
+                <img src="assets/legacy/paathlogo.png" alt="Paath pixel logo" loading="lazy">
+              </button>
+              <button class="school-logo-item" type="button" data-project="karebare" data-static-logo>
+                <img src="assets/legacy/karebare.png" alt="KareBare pixel logo" loading="lazy">
+              </button>
+              <button class="school-logo-item" type="button" data-project="coala" data-static-logo>
+                <img src="assets/legacy/projecticonshp/coala.png" alt="Coala pixel logo" loading="lazy">
+              </button>
+              <button class="school-logo-item" type="button" data-project="cmp" data-static-logo>
+                <img src="assets/legacy/projecticonshp/cmp.PNG" alt="CMP pixel logo" loading="lazy">
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-section card shotbyall-feature load-reveal" id="blobbertrack-ad2" style="--load-delay: 340ms">
+        <div class="shotbyall-feature__copy">
+          <p class="shotbyall-feature__eyebrow">DIGITAL MEDIA STARTUP</p>
+          <h2 class="shotbyall-feature__title">SHOTBYALL</h2>
+          <p class="shotbyall-feature__text">My work focuses on immersive wide-angle photography and videography. I regularly work with creatives + music communities and aim to capture moments that feel authentic and cinematic.</p>
+          <div class="hero-actions shotbyall-feature__actions">
+            <a class="button button--primary" href="https://shotbylall.pixieset.com/" target="_blank" rel="noreferrer">Open Pixieset</a>
+          </div>
+        </div>
+        <div class="shotbyall-feature__gallery" aria-label="ShotByAll photo gallery">
+          <div class="shotbyall-feature__gallery-viewport">
+            <div class="shotbyall-feature__gallery-track">
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_0008.JPG" alt="ShotByAll gallery photo 1" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_0267.JPG" alt="ShotByAll gallery photo 2" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_1656.JPG" alt="ShotByAll gallery photo 3" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_2663.JPG" alt="ShotByAll gallery photo 4" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_4485.JPG" alt="ShotByAll gallery photo 5" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_6246.JPG" alt="ShotByAll gallery photo 6" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item"><img src="assets/projectimages/SBAPhotos/IMG_9689.JPG" alt="ShotByAll gallery photo 7" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_0008.JPG" alt="" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_0267.JPG" alt="" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_1656.JPG" alt="" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_2663.JPG" alt="" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_4485.JPG" alt="" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_6246.JPG" alt="" loading="lazy"></figure>
+              <figure class="shotbyall-feature__gallery-item" aria-hidden="true"><img src="assets/projectimages/SBAPhotos/IMG_9689.JPG" alt="" loading="lazy"></figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-section card blobbertrack-ad photoeditor-ad load-reveal" id="photoeditor-ad" style="--load-delay: 340ms">
+        <div class="blobbertrack-ad__copy">
+          <p class="blobbertrack-ad__eyebrow">TRY MY</p>
+          <h2 class="blobbertrack-ad__title">IN WEB PHOTOEDITOR</h2>
+          <p class="blobbertrack-ad__text">Make quick photo edits right inside the browser.</p>
+          <p class="blobbertrack-ad__text blobbertrack-ad__text--strong">Open the editor, crop a shot, tune the image, and keep the workflow lightweight.</p>
+          <div class="hero-actions photoeditor-ad__actions">
+            <button class="button button--primary" type="button" data-open-window="photoeditor">Open Photoeditor</button>
+          </div>
+        </div>
+        <!-- Guide: In-browser photo editor promo mockup -->
+        <div class="photoeditor-ad__device" aria-hidden="true">
+          <div class="photoeditor-ad__workspace">
+            <div class="photoeditor-ad__toolbar">
+              <span>PHOTOEDITOR</span>
+              <span>IN WEB</span>
+            </div>
+            <div class="photoeditor-ad__screen">
+              <div class="photoeditor-ad__panel">
+                <p class="photoeditor-ad__panel-label">ADJUST</p>
+                <p class="photoeditor-ad__panel-copy">Crop, rotate, and fine tune your image without leaving the portfolio.</p>
+                <div class="photoeditor-ad__swatches">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <figure class="photoeditor-ad__preview">
+                <img src="assets/projectimages/head.png" alt="Photo editor preview portrait" loading="lazy">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+    </main>
+  </div>
+  <!-- The window layer holds every modal-like desktop window that main/script.js opens and reorders. -->
+  <!-- Guide: Portfolio layout structure and window containers -->
+  <div class="window-layer" aria-live="polite">
+    <article class="window window--app" data-window="finder" aria-hidden="true">
+      <div class="window__bar">
+        <div class="window__caption">
+          <span class="window__appicon" aria-hidden="true"></span>
+          <div class="window__title">Finder</div>
+        </div>
+        <div class="window__controls">
+          <button type="button" class="traffic-light traffic-light--close" data-close aria-label="Close">X</button>
+        </div>
+      </div>
+      <div class="window__body window__body--chrome finder-window">
+        <div class="window__toolbar">
+          <span class="window__toolbar-label">Address</span>
+          <div class="window__toolbar-field">C:\Portfolio\Finder</div>
+        </div>
+        <div class="finder-window__shell win98-shell">
+          <aside class="win98-sidebar">
+            <p class="win98-sidebar__title">Folders</p>
+            <div class="finder-tabs finder-tabs--sidebar" role="tablist" aria-label="Finder tabs">
+              <button type="button" class="finder-pill is-active" data-finder-tab="overview" role="tab" aria-selected="true">Overview</button>
+              <button type="button" class="finder-pill" data-finder-tab="legacy" role="tab" aria-selected="false">Legacy Visions</button>
+              <button type="button" class="finder-pill" data-finder-tab="snapshots" role="tab" aria-selected="false">Snapshot Versions</button>
+              <button type="button" class="finder-pill" data-finder-tab="media" role="tab" aria-selected="false">Media</button>
+            </div>
+          </aside>
+
+          <!-- Guide: Finder window chrome, tabs, and panels -->
+          <section class="finder-window__main win98-main">
+            <section class="finder-panel is-active" data-finder-panel="overview">
+              <div class="win98-fieldset">
+                <div class="win98-fieldset__legend">Profile Overview</div>
+                <div class="win98-fieldset__body">
+                  <p class="eyebrow">Anthony Lall</p>
+                  <h2>Flat desktop portfolio shell.</h2>
+                  <p class="lede">Fast navigation, compact hierarchy, and project icons that feel like native app objects.</p>
+                </div>
+              </div>
+              <div class="win98-fieldset">
+                <div class="win98-fieldset__legend">System Information</div>
+                <div class="win98-fieldset__body">
+                  <div class="detail-list">
+                    <div>
+                      <span>School</span>
+                      <strong>Cornell University Engineering</strong>
+                    </div>
+                    <div>
+                      <span>Primary focus</span>
+                      <strong>Product design, creative systems, and student-facing software</strong>
+                    </div>
+                    <!-- Guide: Portfolio layout structure and window containers -->
+                    <div>
+                      <span>Contact</span>
+                      <strong>all266@cornell.edu</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="finder-panel" data-finder-panel="legacy" hidden>
+              <div class="win98-fieldset">
+                <div class="win98-fieldset__legend">Archive</div>
+                <div class="win98-fieldset__body">
+                  <p class="eyebrow">Archive</p>
+                  <h2>Legacy visions archive.</h2>
+                  <p class="lede">Earlier visual experiments and image work now live inside Finder instead of the contact page.</p>
+                  <div class="finder-card">
+                    <div>
+                      <p class="finder-card__title">Legacy Visions</p>
+                      <p class="finder-card__meta">Open the original archive page.</p>
+                    </div>
+                    <a class="button button--primary" href="OLD/visions.html">Open Archive</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Guide: Finder window chrome, tabs, and panels -->
+            <section class="finder-panel" data-finder-panel="snapshots" hidden>
+              <div class="win98-fieldset">
+                <div class="win98-fieldset__legend">Version History</div>
+                <div class="win98-fieldset__body">
+                  <p class="eyebrow">Snapshots</p>
+                  <h2>Previous portfolio snapshot versions.</h2>
+                  <p class="lede">Placeholder space for older portfolio app screenshots and version comparisons.</p>
+                  <figure class="snapshot-card">
+                    <img src="icons/portfolio-snapshot-placeholder.svg" alt="Placeholder preview for previous portfolio snapshots">
+                    <figcaption>Add old portfolio screenshots here later.</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </section>
+
+            <!-- <section class="finder-panel" data-finder-panel="media" hidden>
+              <div class="win98-fieldset">
+                <div class="win98-fieldset__legend">Media Links</div>
+                <div class="win98-fieldset__body">
+                  <p class="eyebrow">Media</p>
+                  <h2>Channel links and visual platforms.</h2>
+                  <p class="lede">Color-coded launch cards for music, photo, and portfolio channels.</p>
+                  <div class="media-grid">
+                    <a class="media-card media-card--prodbyruula" href="https://www.youtube.com/@PRODBYRUULA" target="_blank" rel="noreferrer">
+                      <span class="media-card__label">YouTube</span>
+                      <strong>prodbyruula</strong>
+                    </a>
+                    <a class="media-card media-card--shotbyall" href="https://www.youtube.com/@shotbyall" target="_blank" rel="noreferrer">
+                      <span class="media-card__label">YouTube</span>
+                      <strong>shotbyall</strong>
+                    </a>
+                    <a class="media-card media-card--pixieset" href="https://shotbylall.pixieset.com/" target="_blank" rel="noreferrer">
+                      <span class="media-card__label">Pixieset</span>
+                      <strong>SHOTBYALL</strong>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section> -->
+          </section>
+        </div>
+        <div class="window__statusbar">
+          <span>4 objects</span>
+          <span>Ready</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Guide: Resume window summary and PDF preview pane -->
+    <article class="window" data-window="resume" aria-hidden="true">
+      <div class="window__bar">
+        <div class="window__caption">
+          <span class="window__appicon" aria-hidden="true"></span>
+          <div class="window__title">Resume</div>
+        </div>
+        <div class="window__controls">
+          <button type="button" class="traffic-light traffic-light--close" data-close aria-label="Close">X</button>
+        </div>
+      </div>
+      <div class="window__body window__body--chrome resume-window">
+        <div class="window__toolbar">
+          <span class="window__toolbar-label">Document</span>
+          <div class="window__toolbar-field">resume.pdf</div>
+        </div>
+        <div class="resume-window__shell win98-shell">
+          <div class="resume-window__copy">
+            <div class="win98-fieldset">
+              <div class="win98-fieldset__legend">Preview</div>
+              <div class="win98-fieldset__body">
+                <p class="eyebrow">Preview</p>
+                <h2>Resume document view.</h2>
+                <p class="lede">A simple side rail and preview pane for the portfolio PDF.</p>
+                <a class="button button--full" href="main/resume.pdf" download>Download PDF</a>
+              </div>
+            </div>
+          </div>
+          <!-- Guide: Resume window summary and PDF preview pane -->
+          <div class="resume-window__preview">
+            <iframe src="main/resume.pdf" title="Resume PDF preview"></iframe>
+          </div>
+        </div>
+        <div class="window__statusbar">
+          <span>1 document</span>
+          <span>Ready</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="window window--app window--photoeditor" data-window="photoeditor" aria-hidden="true">
+      <div class="window__bar">
+        <div class="window__caption">
+          <span class="window__appicon" aria-hidden="true"></span>
+          <div class="window__title">Photo Editor</div>
+        </div>
+        <div class="window__controls">
+          <button
+            type="button"
+            class="window__chrome-button"
+            data-photoeditor-fullscreen
+            aria-label="Make photo editor full screen"
+          >FULL</button>
+          <button
+            type="button"
+            class="window__chrome-button"
+            data-photoeditor-minimize
+            aria-label="Restore photo editor size"
+            hidden
+          >MIN</button>
+          <button type="button" class="traffic-light traffic-light--close" data-close aria-label="Close">X</button>
+        </div>
+      </div>
+      <!-- Guide: Photo editor window and embedded app frame -->
+      <div class="window__body window__body--chrome photoeditor-window">
+        <div class="window__toolbar">
+          <span class="window__toolbar-label">Workspace</span>
+          <div class="window__toolbar-field">C:\Portfolio\PHOTOEDITORAPP</div>
+        </div>
+        <div class="photoeditor-window__shell photoeditor-window__shell--frame">
+          <iframe
+            class="photoeditor-frame"
+            src="./photoeditorapp/photoeditor.html"
+            title="Photo Editor App"
+            allow="camera"
+          ></iframe>
+        </div>
+        <div class="window__statusbar">
+          <span>Image workspace</span>
+          <span>Standalone app loaded.</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Guide: Contact window details and quick action links -->
+    <article class="window window--app" data-window="contact" aria-hidden="true">
+      <div class="window__bar">
+        <div class="window__caption">
+          <span class="window__appicon" aria-hidden="true"></span>
+          <div class="window__title">Contact</div>
+        </div>
+        <div class="window__controls">
+          <button type="button" class="traffic-light traffic-light--close" data-close aria-label="Close">X</button>
+        </div>
+      </div>
+      <div class="window__body window__body--chrome contact-window">
+        <div class="window__toolbar">
+          <span class="window__toolbar-label">Folder</span>
+          <div class="window__toolbar-field">C:\Portfolio\Contact</div>
+        </div>
+        <div class="contact-window__shell win98-shell">
+          <aside class="win98-sidebar">
+            <div class="win98-fieldset">
+              <div class="win98-fieldset__legend">Contents</div>
+              <div class="win98-fieldset__body">
+                <ul class="win98-side-list">
+                  <li>Email</li>
+                  <li>LinkedIn</li>
+                  <li>GitHub</li>
+                  <li>Availability</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Guide: Contact window details and quick action links -->
+          <section class="contact-window__main win98-main">
+            <div class="win98-fieldset">
+              <div class="win98-fieldset__legend">Contact</div>
+              <div class="win98-fieldset__body">
+                <p class="eyebrow">Contact</p>
+                <h2>Simple, direct contact options.</h2>
+                <p class="lede">Reach out by email, connect on LinkedIn, or browse the GitHub work directly.</p>
+                <div class="detail-list">
+                  <div>
+                    <span>Email</span>
+                    <strong>all266@cornell.edu</strong>
+                  </div>
+                  <div>
+                    <span>LinkedIn</span>
+                    <strong>anthonylewislall</strong>
+                  </div>
+                  <div>
+                    <span>Availability</span>
+                    <strong>Open to design and front-end work</strong>
+                  </div>
+                </div>
+                <!-- Guide: Contact window details and quick action links -->
+                <div class="hero-actions contact-actions">
+                  <a class="button button--primary" href="mailto:all266@cornell.edu">Email</a>
+                  <a class="button" href="https://www.linkedin.com/in/anthonylewislall" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a class="button" href="https://github.com/anthonyASC5/anthonys-project" target="_blank" rel="noreferrer">GitHub</a>
+                  <button type="button" class="button" data-copy-email>Copy Email</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="window__statusbar">
+          <span>3 links</span>
+          <span>Ready to connect.</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="window" data-window="about" aria-hidden="true">
+      <div class="window__bar">
+        <div class="window__caption">
+          <span class="window__appicon" aria-hidden="true"></span>
+          <!-- Guide: Portfolio layout structure and window containers -->
+          <div class="window__title">About Me</div>
+        </div>
+        <div class="window__controls">
+          <button type="button" class="traffic-light traffic-light--close" data-close aria-label="Close">X</button>
+        </div>
+      </div>
+      <div class="window__body window__body--chrome about-window">
+        <div class="window__toolbar">
+          <span class="window__toolbar-label">About</span>
+          <div class="window__toolbar-field">C:\Portfolio\About</div>
+        </div>
+        <div class="about-window__shell">
+          <div class="about-window__grid">
+            <section class="about-section about-section--wide about-section--intro">
+              <h3>About Me</h3>
+              <p class="about-window__intro-name">Anthony Lewis Lall</p>
+              <p>
+                Creative and detail-oriented software developer and UI/UX designer with a passion for building intuitive,
+                scalable interfaces.
+              </p>
+              <div class="hero-actions">
+                <a class="button button--primary" href="https://www.linkedin.com/in/anthonylewislall" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="button" href="https://shotbylall.pixieset.com/" target="_blank" rel="noreferrer">Pixieset</a>
+              </div>
+            </section>
+            <section class="about-section">
+              <h3>Programming</h3>
+              <p>JavaScript, Python, TypeScript, Go, HTML, CSS, SQL, Git, OCaml</p>
+            </section>
+            <section class="about-section">
+              <h3>Frameworks</h3>
+              <p>React, D3, P5.js, Next.js, Bootstrap, NumPy, Pandas</p>
+            </section>
+            <section class="about-section">
+              <h3>UI/UX Design</h3>
+              <p>Figma, Wireframing, Prototyping, Interaction Design, Gaming Design, Spline API</p>
+            </section>
+            <!-- Guide: About window profile, skills, and experience sections -->
+            <section class="about-section">
+              <h3>AI Tools</h3>
+              <p>Google AI Studio, GPT-Codex, AI-powered platforms, prompt engineering, generative UI flows</p>
+            </section>
+            <section class="about-section about-section--wide">
+              <h3>Education</h3>
+              <p>Cornell University, College of Engineering</p>
+              <p>Human Spirit Award Winner (2024)</p>
+              <p>Funded Pre-Seed Digital Media Company by eCornell</p>
+              <p>Member of Der Hexenkreis Senior Honors Society [DH]</p>
+              <p>Graduated May 2025</p>
+            </section>
+            <section class="about-section about-section--wide">
+              <h3>Summary</h3>
+              <p>
+                Creative and detail-oriented software developer and UI/UX designer with a passion for building intuitive,
+                scalable interfaces. Skilled in user-centered design, wireframing, prototyping, and cross-functional
+                collaboration. Experienced in leveraging AI tools like GPT-Codex and Google AI Studio to accelerate
+                design workflows, automate layout generation, and build responsive user flows for generative platforms.
+                Known for combining visual storytelling with technical precision to deliver impactful web and mobile
+                experiences.
+              </p>
+            </section>
+            <!-- Guide: About window profile, skills, and experience sections -->
+            <section class="about-section about-section--wide about-section--highlight">
+              <h3>What I bring</h3>
+              <p>
+                I like building interfaces that feel expressive without sacrificing clarity. My work usually lives at the
+                intersection of front-end engineering, visual storytelling, brand systems, and fast creative tooling.
+              </p>
+            </section>
+            <section class="about-section about-section--wide">
+              <h3>Currently Working At</h3>
+              <p>Executive Intern - RM Logitech Inc</p>
+              <p>SEP 2024 - PRESENT</p>
+              <p>
+                Collaborating with the executive team on digital operations and IT initiatives, with contributions to
+                automation, internal tooling, and web-based systems.
+              </p>
+            </section>
+          </div>
+        </div>
+        <div class="window__statusbar">
+          <span>Profile loaded</span>
+          <span>Skills and experience ready.</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Guide: Project modal header, navigation, and detail shell -->
+    <article class="window window--project" data-window="project" aria-hidden="true">
+      <div class="window__bar">
+        <div class="window__caption">
+          <span class="window__appicon" aria-hidden="true"></span>
+          <div class="window__title" data-project-title>Project</div>
+        </div>
+        <div class="window__controls">
+          <button type="button" class="window__chrome-button" data-project-prev aria-label="Open previous project">←</button>
+          <button type="button" class="window__chrome-button" data-project-next aria-label="Open next project">→</button>
+          <button type="button" class="traffic-light traffic-light--close" data-close aria-label="Close">X</button>
+        </div>
+      </div>
+      <div class="window__body window__body--chrome project-window">
+        <div class="window__toolbar">
+          <span class="window__toolbar-label">Project</span>
+          <div class="window__toolbar-field">C:\Portfolio\Projects\Details</div>
+        </div>
+        <div class="project-window__shell win98-shell">
+          <div class="project-window__icon" data-project-icon></div>
+          <div class="project-window__content" data-project-content></div>
+        </div>
+        <!-- Guide: Portfolio layout structure and window containers -->
+        <div class="window__statusbar">
+          <span>Project information</span>
+          <span>Open the external link to continue.</span>
+        </div>
+      </div>
+
+      
+    </article>
+    
+  </div>
+  
+  
 </body>
 </html>

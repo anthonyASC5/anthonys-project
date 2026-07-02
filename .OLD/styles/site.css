@@ -1,0 +1,271 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #e1e1e1;
+}
+
+/*header*/
+
+#grad {
+    color: rgb(248, 248, 248);
+}
+
+.header {
+    background-image: url('../images/grad1.JPG');
+    background-position: center;
+    position: relative;
+    height: 600px;
+    background-size: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Unbounded', cursive;
+
+}
+
+.header h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    top: 60%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+}
+
+
+
+/*nav*/
+
+.navlist ul {
+    background-color: rgb(51, 51, 51);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 30px;
+    list-style-type: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 0px;
+}
+
+.navlist a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Unbounded', cursive;
+    position: relative;
+    font-weight: bold;
+}
+
+.navlist a:hover {
+    color: aliceblue;
+}
+
+.navlist a:after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: rgb(251, 241, 241);
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    transition: 0.3s;
+}
+
+.navlist a:hover:after {
+    width: 100%;
+}
+
+
+/* hover over image for description */
+.contain {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4px;
+}
+
+.container {
+    position: relative;
+    width: 40%;
+    padding: 10px;
+}
+
+.image {
+    display: block;
+    width: 100.2%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #252525;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Unbounded', cursive;
+}
+
+/* hover over image end*/
+
+/** image with caption(asc)**/
+
+#asc {
+    width: 40%;
+}
+
+#asc,
+#asc:visited {
+    color: white;
+    /* or whatever */
+}
+
+.asc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(52, 52, 52);
+    text-align: center;
+    margin: 40px;
+}
+
+#caption {
+    background-color: rgb(52, 52, 52);
+    color: aliceblue;
+    font-size: 20px;
+    font-family: 'Unbounded', cursive;
+    line-height: 26px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: justify;
+  text-justify: inter-word;
+
+}
+
+#caption2 {
+    background-color: rgb(52, 52, 52);
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 15px;
+    font-family: 'Unbounded', cursive;
+}
+
+.atitle {
+    font-family: 'Unbounded', cursive;
+    color: aliceblue;
+    font-size: 45px;
+    margin: 1%;
+    padding-bottom: 20px;
+
+}
+
+.box1{
+    background-color: rgb(52, 52, 52);
+    margin: 4px;
+}
+
+#home {
+    font-family: 'Unbounded', cursive;
+    color: rgb(131, 131, 131);
+
+}
+
+/* drop down nav */
+.dropbtn {
+    background-color: #04aa6d00;
+    color: white;
+    font-size: 16px;
+    border: none;
+    font-family: 'Unbounded', cursive;
+    font-size: 30px;
+
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: rgb(12, 11, 11);}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+
+/* making my home site resposive to cater to all screen sizes */
+@media (max-width:900px) {
+
+    html,
+    .media,
+    p {
+        font-size: 70%;
+    }
+
+    .navlist ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .asc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.netflix-button {
+    background-color: #E50914; /* Netflix red */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* To apply padding and height */
+    text-align: center;
+}
+
+.netflix-button:hover {
+    background-color: #f40612; /* Slightly darker red on hover */
+}
+

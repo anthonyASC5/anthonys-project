@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio snapshot placeholder</title>
+  <desc id="desc">A colorful placeholder card for previous portfolio screenshots.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="45%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" rx="28" fill="url(#bg)"/>
+  <rect x="64" y="64" width="832" height="472" rx="24" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+  <rect x="104" y="112" width="200" height="24" fill="#f8fafc" opacity=".75"/>
+  <rect x="104" y="160" width="752" height="16" fill="#f8fafc" opacity=".22"/>
+  <rect x="104" y="196" width="620" height="16" fill="#f8fafc" opacity=".18"/>
+  <rect x="104" y="248" width="226" height="220" rx="18" fill="#f8fafc" opacity=".12"/>
+  <rect x="366" y="248" width="226" height="220" rx="18" fill="#f8fafc" opacity=".12"/>
+  <rect x="628" y="248" width="226" height="220" rx="18" fill="#f8fafc" opacity=".12"/>
+  <text x="480" y="520" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#f8fafc">
+    Add old portfolio screenshots here
+  </text>
+</svg>

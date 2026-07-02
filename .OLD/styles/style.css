@@ -1,0 +1,567 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* removing any auto fomrat MARGINS */
+
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+    background-color: rgb(36, 105, 58);
+    color: rgb(244, 244, 244);
+}
+
+html,
+body {
+    max-width: 100%;
+    /* overflow-x: hidden; */
+}
+
+
+
+.image-gradient {
+    position: absolute;
+    /* makes sure i can move image */
+    top: 0;
+    right: 0;
+    opacity: .5;
+    z-index: -1;
+    /* make sure bk image behind everything */
+
+}
+
+.layer-blur {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px #ffffff;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+}
+
+#truth{
+    width: 15rem;
+  height: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgb(81, 169, 97);
+}
+
+#myname {
+    letter-spacing: -5px;
+    font-size: 6rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a {
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    transition: color .2s ease;
+    text-decoration: none;
+    color: rgb(81, 169, 97);
+
+}
+
+nav a:hover {
+    color: #e4dfdf;
+}
+
+.btn-signin {
+    background-color: #e2dcdd00;
+    color: black;
+    padding: .8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem
+}
+
+.btn-signin:hover {
+    background-color: #7e7e7e;
+
+}
+
+/* main */
+main {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(90vh - 6rem);
+}
+
+.content {
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.tag-box {
+    position: relative;
+    width: 18rem;
+    height: 2.5rem;
+    border: 50px;
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ff00ff, #00ffff, #ff00ff, #00ffff);
+    background-size: 200%;
+    animation: animationGradient 2.5s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+
+}
+
+
+
+/* button repeated animation */
+@keyframes animationGradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+.tag-box .tag {
+    position: absolute;
+    inset: 3px 3px 3px 3px;
+    background-color: black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s ease;
+    cursor: pointer;
+    color: rgb(244, 244, 244);
+
+}
+
+.tag-box .tag:hover {
+    color: rgb(195, 0, 255);
+}
+
+
+.content h1 {
+    padding-top: 60px;
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 2rem 0;
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(128, 128, 128, 0.418);
+}
+
+
+.description {
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    max-width: 35rem;
+    color: rgb(255, 255, 255);
+
+}
+
+.mepicture img {
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+
+}
+
+.buttons2 {
+    display: flex;
+    gap: 4rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+
+}
+
+.btn-get-started {
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+    color: #ffffff;
+}
+
+#coalaposter{
+    height: auto;
+    width: 7rem;
+}
+
+.btn-get-started:hover {
+    background-color: #ffffff;
+    color: #ff8e4d;
+
+}
+
+.btn-signing-main {
+    text-decoration: none;
+    background-color: rgb(55, 138, 80);
+    color: rgb(255, 255, 255);
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn-signing-main:hover {
+    background-color: rgb(206, 204, 204);
+}
+
+.btn2 {
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 4rem 7rem;
+    font-size: 5rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn3 {
+    text-decoration: none;
+    background-color: rgb(250, 250, 250);
+    color: rgb(0, 0, 0);
+    padding: 4rem 7rem;
+    font-size: 5rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn2:hover {
+    background-color: rgb(138, 138, 138);
+
+}
+
+.btn3:hover {
+    background-color: rgb(175, 175, 175);
+
+}
+
+.robot3d {
+    position: absolute;
+    bottom: 70px;
+    right: -30%;
+}
+
+.info {
+    background-color: #fcfcfc;
+    padding: 20px;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    transition: color .2s ease;
+    text-decoration: none;
+    color: black;
+    padding-left: 250px;
+    padding-right: 250px;
+
+}
+
+#dishcraft1 img {
+    padding-top: 50px;
+    width: auto;
+    height: 15rem;
+    padding: 20px;
+
+}
+
+#dishcraft1 {
+    display: flex;
+    justify-content: center;
+
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+img {
+    transition: transform 0.3s;
+}
+
+#featured-episode3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 50px;
+    background: #eaeaea;
+    padding: 2rem;
+    color: #0e0e0e;
+     padding-right:10rem;
+}
+
+#featured-episode3 .coalaposter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 300px;
+    max-width: 100%;
+}
+
+#featured-episode3 .coalaposter img {
+   width: 20rem;
+    height: auto;
+    border-radius: 10px;
+}
+
+#featured-episode3 .description {
+    flex: 1 1 400px;
+    padding: 1rem;
+    color: #0e0e0e;
+}
+
+#featured-episode3 h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#featured-episode3 p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+
+#featured-episode4 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 50px;
+    background: #5a8a6b;
+    padding: 2rem;
+    color: #ffffff;
+    padding-left:10rem;
+}
+
+#featured-episode4 .coalaposter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 300px;
+    max-width: 100%;
+}
+
+#featured-episode4 .coalaposter img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#featured-episode4 .description {
+    flex: 1 1 400px;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+#featured-episode4 h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#featured-episode4 ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+#featured-episode4 li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#featured-episode4 p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TABLET RESPONSIVE */
+@media (max-width: 1300px) {
+    header {
+        padding: 1rem 0.5rem;
+    }
+
+    .content {
+        font-size: 1rem;
+    }
+
+    .robot3d {
+        display: none;
+    }
+
+    .episode-container {
+        scale: .5;
+        scale: .5;
+
+
+    }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .content {
+        max-width: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 1rem;
+    }
+
+    #myname {
+        font-size: 2.5rem;
+        letter-spacing: -2px;
+    }
+
+    .tag-box {
+        width: 12rem;
+        height: 2rem;
+    }
+
+    .tag-box .tag {
+        font-size: 0.9rem;
+    }
+
+    .description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+
+    .btn-get-started,
+    .btn-signing-main {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons2 {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+        height: auto;
+    }
+
+    .btn2, .btn3 {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        width: 90%;
+    }
+
+    #featured-episode4,
+    #featured-episode3 {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    #featured-episode4 .description,
+    #featured-episode3 .description {
+        padding: 1rem;
+    }
+
+    #truth,
+    #coalaposter {
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    .coalaposter {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

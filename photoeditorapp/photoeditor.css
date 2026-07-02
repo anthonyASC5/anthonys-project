@@ -1,0 +1,527 @@
+:root {
+  /* Standalone editor tokens keep the iframe UI self-contained from the main portfolio theme. */
+  color-scheme: dark;
+  --ink: #11151f;
+  --ink-2: #1b202b;
+  --panel: #232a36;
+  --panel-soft: #2b3341;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.34);
+  --text: #f8fafc;
+  --muted: rgba(248, 250, 252, 0.72);
+  --gold: #f7bf11;
+  --gold-soft: #ffd86b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--gold);
+  color: var(--text);
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+body {
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+button,
+input,
+label {
+  font: inherit;
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* The shell splits into a narrow brand rail and a wider editing workspace. */
+.photo-app {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 14px;
+  min-height: 100%;
+  padding: 14px;
+  background:
+    radial-gradient(circle at 10% 6%, rgba(255, 245, 209, 0.6), transparent 24%),
+    linear-gradient(180deg, #f7bf11 0%, #f4b500 100%);
+}
+
+.photo-app__brand {
+  display: grid;
+  align-content: space-between;
+  justify-items: center;
+  padding: 12px 8px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, #262f3a 0%, #1b222d 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.photo-app__brand-mark {
+  margin: 0;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Archivo Black", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.photo-app__brand-mark--alt {
+  color: #f1f5f9;
+}
+
+.photo-app__brand-note {
+  margin: 0;
+  font-size: 9px;
+  color: rgba(248, 250, 252, 0.72);
+  letter-spacing: 0.14em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.photo-app__workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 12px;
+  min-height: 100%;
+}
+
+.photo-app__preview,
+.photo-app__controls,
+.photo-app__section {
+  display: grid;
+  gap: 10px;
+  min-height: 0;
+  padding: 12px;
+  background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.34);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.photo-app__preview {
+  grid-template-rows: auto minmax(420px, 1fr) auto;
+}
+
+.photo-app__controls {
+  grid-template-rows: auto;
+  align-content: start;
+  height: max-content;
+}
+
+.photo-app__titlebar,
+.photo-app__section-label {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #2d3644 0%, #222936 100%);
+  color: #fef3c7;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.photo-app__section {
+  gap: 0;
+}
+
+.photo-app__section-toggle {
+  width: 100%;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.photo-app__section-caret {
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--gold-soft);
+  border-bottom: 2px solid var(--gold-soft);
+  transform: rotate(45deg);
+  transition: transform 140ms ease;
+}
+
+.photo-app__section.is-open .photo-app__section-caret {
+  transform: rotate(225deg);
+  margin-top: 5px;
+}
+
+.photo-app__section-body {
+  display: grid;
+  gap: 8px;
+  padding: 10px 0 0;
+}
+
+.photo-app__section:not(.is-open) .photo-app__section-body {
+  display: none;
+}
+
+/* The viewport doubles as a drag target and the final render surface for images or webcam frames. */
+.photo-app__viewport {
+  position: relative;
+  min-height: 380px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 27px,
+      rgba(255, 255, 255, 0.05) 27px,
+      rgba(255, 255, 255, 0.05) 28px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 27px,
+      rgba(255, 255, 255, 0.05) 27px,
+      rgba(255, 255, 255, 0.05) 28px
+    ),
+    #0c1119;
+}
+
+.photo-app__viewport.is-dragging {
+  border-color: var(--gold-soft);
+  box-shadow: 0 0 0 2px rgba(247, 191, 17, 0.3) inset;
+}
+
+.photo-app__canvas,
+.photo-app__video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  border: 1px solid var(--line-strong);
+  background: #03070f;
+}
+
+.photo-app__empty {
+  position: absolute;
+  inset: 14px;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 10px;
+  padding: 18px;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(15, 21, 31, 0.92), rgba(14, 19, 28, 0.95));
+}
+
+.photo-app__eyebrow,
+.photo-app__empty h1,
+.photo-app__empty p {
+  margin: 0;
+}
+
+.photo-app__eyebrow {
+  color: var(--gold-soft);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.photo-app__empty h1 {
+  font-size: 17px;
+  letter-spacing: 0.03em;
+}
+
+.photo-app__empty p {
+  color: var(--muted);
+  max-width: 340px;
+}
+
+.photo-app__hint {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.photo-app__file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.photo-app__cta-row,
+.photo-app__button-stack,
+.photo-app__slider-list {
+  display: grid;
+  gap: 8px;
+}
+
+.photo-app__cta-row,
+.photo-app__button-stack {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.photo-app__button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(180deg, #2e3847 0%, #242c38 100%);
+  color: var(--text);
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.photo-app__button:hover:not(:disabled) {
+  background: linear-gradient(180deg, #f7bf11 0%, #efaf00 100%);
+  border-color: rgba(0, 0, 0, 0.4);
+  color: #17110a;
+}
+
+.photo-app__button:disabled {
+  color: rgba(248, 250, 252, 0.35);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: #212632;
+  cursor: default;
+}
+
+.photo-app__button--primary {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, #f7bf11 0%, #efaf00 100%);
+  color: #17110a;
+  border-color: rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+}
+
+.photo-app__status {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  background: #1e2531;
+  color: var(--gold-soft);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.photo-app__slider-list {
+  gap: 8px;
+}
+
+.photo-app__slider {
+  display: grid;
+  grid-template-columns: 98px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+.photo-app__slider span {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.photo-app__slider input[type="range"] {
+  width: 100%;
+  margin: 0;
+  accent-color: #f7bf11;
+}
+
+.photo-app__effects-blob {
+  min-height: 112px;
+  border: 0;
+  color: #18120a;
+  background:
+    radial-gradient(circle at 26% 24%, #fff2a4 0%, #ffe15a 26%, transparent 27%),
+    radial-gradient(circle at 66% 68%, #ffd22b 0%, #f7bf11 62%, #e8a500 100%);
+  border-radius: 54% 46% 45% 55% / 43% 50% 50% 57%;
+  box-shadow:
+    inset 0 -3px 0 rgba(0, 0, 0, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.38);
+  display: grid;
+  place-content: center;
+  gap: 2px;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.photo-app__effects-blob:hover {
+  transform: translateY(-2px) scale(1.01);
+  filter: saturate(1.08);
+}
+
+.photo-app__effects-blob-title {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.08em;
+}
+
+.photo-app__effects-blob-sub {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.photo-app__effects-active {
+  margin: 0;
+  color: #ffd86b;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* The effects HUD stays mounted and is simply shown or hidden by the app script. */
+.photo-app__hud {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+}
+
+.photo-app__hud-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 12, 0.76);
+  border: 0;
+}
+
+.photo-app__hud-panel {
+  position: relative;
+  width: min(860px, calc(100vw - 32px));
+  max-height: min(88vh, 780px);
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  overflow: auto;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(180deg, #151c28 0%, #0f1520 100%);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.6);
+}
+
+.photo-app__hud-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.photo-app__hud-head h2 {
+  margin: 0;
+  color: #fef3c7;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+}
+
+.photo-app__hud-copy {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.75);
+  font-size: 10px;
+}
+
+.photo-app__effect-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.photo-app__effect-item {
+  min-height: 42px;
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(180deg, #242e3c 0%, #1a2230 100%);
+  color: #e8edf6;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.photo-app__effect-item:hover {
+  background: linear-gradient(180deg, #f7bf11 0%, #efaf00 100%);
+  border-color: rgba(0, 0, 0, 0.44);
+  color: #1a1309;
+}
+
+.photo-app__effect-item.is-active {
+  border-color: #f7bf11;
+  box-shadow: inset 0 0 0 1px rgba(247, 191, 17, 0.44);
+}
+
+.photo-app__effect-item--stack {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, #2f2b4b 0%, #26203f 100%);
+}
+
+.photo-app__effect-item--clear {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* Responsive rules stack the control column under the preview when iframe space gets tight. */
+@media (max-width: 1080px) {
+  .photo-app {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .photo-app__brand {
+    grid-auto-flow: column;
+    align-content: center;
+    justify-content: start;
+    gap: 12px;
+    min-height: 72px;
+  }
+
+  .photo-app__brand-mark,
+  .photo-app__brand-note {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+
+  .photo-app__brand-mark {
+    font-size: 18px;
+  }
+
+  .photo-app__brand-note {
+    font-size: 10px;
+    margin-left: auto;
+  }
+
+  .photo-app__workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-app__preview {
+    grid-template-rows: auto minmax(320px, 1fr) auto;
+  }
+
+  .photo-app__effect-list {
+    grid-template-columns: 1fr;
+  }
+}

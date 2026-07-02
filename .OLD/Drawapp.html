@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color:rgb(219, 219, 219);">
+  <div class="navbar" style="color: rgb(41, 41, 41); display: flex; justify-content: space-between; position: fixed; top: 0; width: 100%; z-index: 1000; padding-bottom: 50px;">
+    <a href="index.html" style="color: white; text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;"><img src="images/anetflixlogo.png" alt="" height="50"></a>
+    <ul style="list-style: none; display: flex;">
+        <li style="padding: 0 10px; font-family: 'Poppins', sans-serif;"><a href="index.html" style="color: rgb(29, 29, 29); text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;">Home</a></li>
+        <li style="padding: 0 10px; font-family: 'Poppins', sans-serif;"><a href="recruiters.html" style="color: rgb(29, 29, 29); text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;">Read Me!</a></li>
+        <li style="padding: 0 10px; font-family: 'Poppins', sans-serif;"><a href="projects.html" style="color: rgb(29, 29, 29); text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;">Websites</a></li>
+        <li style="padding: 0 10px; font-family: 'Poppins', sans-serif;"><a href="3450.html" style="color: rgb(29, 29, 29); text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;">Projects</a></li>
+        <li style="padding: 0 10px; font-family: 'Poppins', sans-serif;"><a href="visions.html" style="color: rgb(29, 29, 29); text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;">Visions</a></li>
+        <li style="padding: 0 10px; font-family: 'Poppins', sans-serif;"><a href="Drawapp.html" style="color: rgb(29, 29, 29); text-decoration: none; margin: 0 1rem; font-family: 'Poppins', sans-serif;">Draw!</a></li>
+        <!-- Add the EXTRAS tab and dropdown menu -->
+        
+    </ul>
+</div>
+
+  <head>
+    <title>Draw!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/site.css">
+  </head>
+
+  <canvas id="drawing" width="1700" height="700"></canvas>
+
+  <br>
+  <p class="atitle" style="color:rgb(58, 58, 58)"> Click Mouse To Draw (Draw.js! by Lall)</p>
+  <label for="color">Color:</label>
+  <select id="color" name="color">
+    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+  </select>
+
+  <label for="brush-size">Brush Size:</label>
+  <input type="range" id="brush-size" name="brush-size" min="1" max="100" value="50">
+
+  <script src="js/Draw.js"></script>
+
+</body>
+
+</html>

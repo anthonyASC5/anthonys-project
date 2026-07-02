@@ -1,0 +1,114 @@
+Blob Tracker
+Role
+Creative developer, UI/UX designer, front-end engineer.
+Timeline
+2025 - Present
+
+Tools Used
+
+Next.js
+JavaScript
+p5.js
+WebGL
+HTML/CSS
+ffmpeg.wasm
+WebCodecs
+Canvas API
+Summary
+Blob Tracker is a browser-based computer vision and motion analysis studio. It processes webcam, image, and video inputs entirely in the browser to detect movement, track subjects, generate blob masks, and create reactive visual effects.
+Features include motion tracking, centroid tracking, temporal background subtraction, skin masking, bounding boxes, green screen tools, particle trails, edge effects, datamosh experiments, and export workflows. The project focuses on making experimental computer vision accessible without requiring desktop software or cloud processing.
+
+Datamosh
+Role
+Creative technologist, product designer, front-end engineer.
+Timeline
+2025 - Present
+
+Tools Used
+
+JavaScript
+ffmpeg.wasm
+WebCodecs
+HTML/CSS
+React
+Browser Media APIs
+Summary
+Datamosh is a browser-native glitch video editor focused on compression artifacts, broken-frame transitions, and corrupted visual aesthetics.
+The application allows users to manipulate video data and create stylized destruction effects inspired by early digital video errors. Research included frame prediction systems, keyframe structures, motion vectors, and real-time browser rendering techniques.
+
+The project explores how traditional desktop VFX workflows can be recreated entirely inside the browser.
+
+L4VFX
+Role
+Product designer, front-end engineer, creative developer.
+Timeline
+2025 - Present
+
+Tools Used
+
+React
+Next.js
+JavaScript
+Canvas API
+WebGL
+ffmpeg.wasm
+CSS Animation Systems
+Summary
+L4VFX is a collection of browser-based visual effects and image-processing experiments. The platform serves as a testing ground for real-time filters, stylized rendering techniques, motion effects, and experimental visual workflows.
+Effects include image degradation, VHS simulations, edge enhancement, distortion systems, feedback loops, threshold effects, color transformations, and procedural visuals.
+
+The goal is to bring lightweight creative tools directly into the browser with no installation required.
+
+LALLSUITE
+Role
+Founder, product designer, creative technologist.
+Timeline
+2025 - Present
+
+Tools Used
+
+JavaScript
+Figma
+GitHub Pages
+Summary
+LALLSUITE is an umbrella platform that consolidates experimental creative software developed across multiple projects.
+The suite includes tools for computer vision, datamoshing, video processing, audio manipulation, 3D rendering, and creative coding. It functions as both a product ecosystem and a research environment for testing new ideas across media technologies.
+
+The platform reflects an ongoing effort to build accessible creative software that runs directly in the browser while maintaining professional-grade capabilities.
+
+Audio Machine
+Role
+Product designer, audio tool developer.
+Timeline
+2025 - Present
+
+Tools Used
+
+JavaScript
+Web Audio API
+React
+HTML/CSS
+DSP Concepts
+Summary
+Audio Machine is a browser-based audio processing workstation focused on music experimentation and sound manipulation.
+Features include slowed-and-reverb processing, vinyl emulation, bass enhancement, random audio chopping, pitch manipulation, and creative playback controls. The project investigates how digital audio workstation concepts can be translated into lightweight browser experiences.
+
+The platform is designed for musicians, producers, and content creators seeking fast creative workflows.
+
+Lanzoid
+Role
+Creative developer, 3D graphics engineer.
+Timeline
+2025 - Present
+
+Tools Used
+
+Three.js
+WebGL
+JavaScript
+GLSL
+HTML/CSS
+Summary
+Lanzoid is a browser-based 3D typography and motion graphics tool. It enables users to generate, manipulate, and animate three-dimensional text and visual compositions directly in the browser.
+The project explores procedural graphics, spatial typography, real-time rendering, camera systems, and animation workflows. It serves as an experimental environment for creating stylized titles, visualizers, and motion assets without relying on traditional 3D software.
+

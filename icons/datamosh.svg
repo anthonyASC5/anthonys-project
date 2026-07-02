@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72" role="img" aria-label="Datamosh icon">
+  <g shape-rendering="crispEdges">
+    <rect x="14" y="12" width="44" height="4" fill="#ff4a4a"/>
+    <rect x="22" y="16" width="8" height="8" fill="#791010"/>
+    <rect x="42" y="16" width="8" height="8" fill="#791010"/>
+    <rect x="18" y="22" width="36" height="26" fill="#ab1515"/>
+    <rect x="22" y="22" width="28" height="26" fill="#da2f2f"/>
+    <rect x="26" y="26" width="20" height="18" fill="#ff6666"/>
+    <rect x="24" y="44" width="24" height="8" fill="#8d1111"/>
+
+    <rect x="26" y="30" width="6" height="6" fill="#fff7f7"/>
+    <rect x="40" y="30" width="6" height="6" fill="#fff7f7"/>
+    <rect x="28" y="32" width="2" height="2" fill="#3d0000"/>
+    <rect x="42" y="32" width="2" height="2" fill="#3d0000"/>
+    <rect x="30" y="38" width="12" height="4" fill="#3d0000"/>
+    <rect x="24" y="28" width="2" height="8" fill="#ff9a9a"/>
+    <rect x="46" y="28" width="2" height="8" fill="#ff9a9a"/>
+    <rect x="20" y="30" width="4" height="6" fill="#c91e1e"/>
+    <rect x="48" y="30" width="4" height="6" fill="#c91e1e"/>
+  </g>
+</svg>

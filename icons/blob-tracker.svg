@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72" role="img" aria-label="Blob Tracker icon">
+  <g shape-rendering="crispEdges">
+    <rect x="14" y="12" width="44" height="4" fill="#ff67c1"/>
+    <rect x="20" y="20" width="32" height="8" fill="#ff7dcb"/>
+    <rect x="16" y="24" width="40" height="24" fill="#ff8fd6"/>
+    <rect x="20" y="28" width="32" height="20" fill="#ffade2"/>
+    <rect x="24" y="44" width="20" height="8" fill="#ff74c6"/>
+
+    <rect x="18" y="28" width="6" height="12" fill="#ff7fcf"/>
+    <rect x="48" y="26" width="6" height="14" fill="#ff7fcf"/>
+    <rect x="26" y="30" width="8" height="8" fill="#fff6ff"/>
+    <rect x="38" y="30" width="8" height="8" fill="#fff6ff"/>
+    <rect x="30" y="32" width="2" height="2" fill="#ff4ead"/>
+    <rect x="42" y="32" width="2" height="2" fill="#ff4ead"/>
+    <rect x="28" y="40" width="16" height="4" fill="#ff4ead"/>
+    <rect x="30" y="44" width="12" height="4" fill="#ffd3ef"/>
+    <rect x="24" y="18" width="4" height="4" fill="#ffd3ef"/>
+    <rect x="42" y="18" width="4" height="4" fill="#ffd3ef"/>
+  </g>
+</svg>

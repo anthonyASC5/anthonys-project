@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Editor App</title>
+  <!-- The standalone photo editor keeps its own shell so it can run cleanly inside the iframe window. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./photoeditor.css">
+</head>
+<body>
+  <main class="photo-app">
+    <!-- Brand rail stays narrow so the actual editing workspace can take most of the frame width. -->
+    <aside class="photo-app__brand">
+      <p class="photo-app__brand-mark">PHOTO</p>
+      <p class="photo-app__brand-mark photo-app__brand-mark--alt">EDITOR</p>
+      <p class="photo-app__brand-note">REALTIME VISUAL LAB</p>
+    </aside>
+
+    <div class="photo-app__workspace">
+      <!-- Preview column holds the live canvas and source state messaging. -->
+      <section class="photo-app__preview">
+        <div class="photo-app__titlebar">LIVE VIEWPORT</div>
+        <div class="photo-app__viewport" data-dropzone>
+          <video class="photo-app__video" playsinline muted hidden data-video></video>
+          <canvas class="photo-app__canvas" data-canvas></canvas>
+          <div class="photo-app__empty" data-empty>
+            <p class="photo-app__eyebrow">PHOTO EDITOR</p>
+            <h1>Load an image or camera feed.</h1>
+            <p>Edits render live in this viewport.</p>
+            <p class="photo-app__hint">Tip: drag and drop an image, or press Cmd/Ctrl + V to paste.</p>
+            <div class="photo-app__cta-row">
+              <button class="photo-app__button photo-app__button--primary" type="button" data-open-file>IMPORT</button>
+              <button class="photo-app__button" type="button" data-start-camera>CAMERA</button>
+            </div>
+          </div>
+        </div>
+        <div class="photo-app__status" data-status>NO IMAGE LOADED.</div>
+      </section>
+
+      <!-- Control modules stay grouped by job so the JS can bind whole sections consistently. -->
+      <aside class="photo-app__controls">
+        <input id="photo-file" class="photo-app__file-input" type="file" accept="image/*" data-file-input>
+
+        <div class="photo-app__titlebar">CONTROL MODULES</div>
+
+        <section class="photo-app__section is-open" data-section>
+          <button class="photo-app__section-label photo-app__section-toggle" type="button" data-section-toggle aria-expanded="true" aria-controls="photo-source-panel">
+            <span>SOURCE</span>
+            <span class="photo-app__section-caret" aria-hidden="true"></span>
+          </button>
+          <div class="photo-app__section-body" id="photo-source-panel" data-section-body>
+            <div class="photo-app__button-stack">
+              <button class="photo-app__button" type="button" data-open-file>UPLOAD</button>
+              <button class="photo-app__button" type="button" data-start-camera>START CAMERA</button>
+              <button class="photo-app__button" type="button" data-capture disabled>CAPTURE</button>
+              <button class="photo-app__button" type="button" data-stop-camera disabled>STOP CAMERA</button>
+              <button class="photo-app__button" type="button" data-reset disabled>RESET</button>
+              <button class="photo-app__button photo-app__button--primary" type="button" data-download disabled>EXPORT PNG</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="photo-app__section is-open" data-section>
+          <button class="photo-app__section-label photo-app__section-toggle" type="button" data-section-toggle aria-expanded="true" aria-controls="photo-adjust-panel">
+            <span>ADJUST</span>
+            <span class="photo-app__section-caret" aria-hidden="true"></span>
+          </button>
+          <div class="photo-app__section-body" id="photo-adjust-panel" data-section-body>
+            <div class="photo-app__slider-list">
+              <label class="photo-app__slider">
+                <span>BRIGHTNESS</span>
+                <input type="range" min="-40" max="40" value="0" data-control="brightness">
+              </label>
+              <label class="photo-app__slider">
+                <span>CONTRAST</span>
+                <input type="range" min="-40" max="40" value="0" data-control="contrast">
+              </label>
+              <label class="photo-app__slider">
+                <span>SATURATION</span>
+                <input type="range" min="-60" max="60" value="0" data-control="saturation">
+              </label>
+              <label class="photo-app__slider">
+                <span>WARMTH</span>
+                <input type="range" min="-50" max="50" value="0" data-control="warmth">
+              </label>
+              <label class="photo-app__slider">
+                <span>SHARPNESS</span>
+                <input type="range" min="0" max="100" value="0" data-control="sharpness">
+              </label>
+              <label class="photo-app__slider">
+                <span>HIGHLIGHTS</span>
+                <input type="range" min="-50" max="50" value="0" data-control="highlights">
+              </label>
+              <label class="photo-app__slider">
+                <span>FADE</span>
+                <input type="range" min="0" max="70" value="0" data-control="fade">
+              </label>
+              <label class="photo-app__slider">
+                <span>VIGNETTE</span>
+                <input type="range" min="0" max="100" value="0" data-control="vignette">
+              </label>
+              <label class="photo-app__slider">
+                <span>GRAIN</span>
+                <input type="range" min="0" max="60" value="0" data-control="grain">
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="photo-app__section is-open" data-section>
+          <button class="photo-app__section-label photo-app__section-toggle" type="button" data-section-toggle aria-expanded="true" aria-controls="photo-tools-panel">
+            <span>TOOLS</span>
+            <span class="photo-app__section-caret" aria-hidden="true"></span>
+          </button>
+          <div class="photo-app__section-body" id="photo-tools-panel" data-section-body>
+            <div class="photo-app__button-stack">
+              <button class="photo-app__button" type="button" data-rotate-left disabled>ROTATE -90</button>
+              <button class="photo-app__button" type="button" data-rotate-right disabled>ROTATE +90</button>
+              <button class="photo-app__button" type="button" data-flip-x disabled>FLIP H</button>
+              <button class="photo-app__button" type="button" data-flip-y disabled>FLIP V</button>
+              <button class="photo-app__button" type="button" data-undo disabled>UNDO</button>
+              <button class="photo-app__button" type="button" data-clear disabled>CLEAR</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="photo-app__section is-open" data-section>
+          <button class="photo-app__section-label photo-app__section-toggle" type="button" data-section-toggle aria-expanded="true" aria-controls="photo-effects-panel">
+            <span>EFFECTS</span>
+            <span class="photo-app__section-caret" aria-hidden="true"></span>
+          </button>
+          <div class="photo-app__section-body" id="photo-effects-panel" data-section-body>
+            <button class="photo-app__effects-blob" type="button" data-open-effects-hud aria-haspopup="dialog" aria-controls="photo-effects-hud">
+              <span class="photo-app__effects-blob-title">BLOB FX</span>
+              <span class="photo-app__effects-blob-sub">OPEN HUD</span>
+            </button>
+            <p class="photo-app__effects-active" data-active-effect>NO FX STACK ACTIVE.</p>
+            <button class="photo-app__button" type="button" data-clear-effect disabled>CLEAR EFFECT STACK</button>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- Effects HUD is rendered once and toggled in place instead of being rebuilt on every click. -->
+    <section class="photo-app__hud" id="photo-effects-hud" data-effects-hud aria-hidden="true" hidden>
+      <div class="photo-app__hud-backdrop" data-close-effects-hud></div>
+      <div class="photo-app__hud-panel" role="dialog" aria-modal="true" aria-labelledby="effects-hud-title">
+        <div class="photo-app__hud-head">
+          <h2 id="effects-hud-title">EFFECTS HUD</h2>
+          <button class="photo-app__button" type="button" data-close-effects-hud>CLOSE</button>
+        </div>
+        <p class="photo-app__hud-copy">SELECT AN EFFECT STACK. EACH EFFECT REBUILDS THE LIVE PREVIEW.</p>
+        <div class="photo-app__effect-list" data-effects-list>
+          <button class="photo-app__effect-item" type="button" data-effect="ordered-bayer-4">ORDERED DITHERING (BAYER MATRIX)</button>
+          <button class="photo-app__effect-item" type="button" data-effect="floyd-steinberg">FLOYD-STEINBERG ERROR DIFFUSION</button>
+          <button class="photo-app__effect-item" type="button" data-effect="atkinson">ATKINSON DITHERING</button>
+          <button class="photo-app__effect-item" type="button" data-effect="random-threshold">RANDOM THRESHOLD DITHERING</button>
+          <button class="photo-app__effect-item" type="button" data-effect="blue-noise">BLUE NOISE DITHERING</button>
+          <button class="photo-app__effect-item" type="button" data-effect="quantized-noise">QUANTIZED COLOR + NOISE INJECTION</button>
+          <button class="photo-app__effect-item" type="button" data-effect="film-grain">FILM GRAIN SIMULATION</button>
+          <button class="photo-app__effect-item" type="button" data-effect="halftone">HALFTONE DOTS</button>
+          <button class="photo-app__effect-item" type="button" data-effect="pixel-sort-dither">PIXEL SORTING + DITHER</button>
+          <button class="photo-app__effect-item" type="button" data-effect="crt-analog">CRT / ANALOG NOISE DITHERING</button>
+          <button class="photo-app__effect-item" type="button" data-effect="salt-pepper">EXTRA WEIRD: SALT + PEPPER NOISE</button>
+          <button class="photo-app__effect-item" type="button" data-effect="dust-scratches">EXTRA WEIRD: DUST + SCRATCHES</button>
+          <button class="photo-app__effect-item" type="button" data-effect="multiplicative-grain">EXTRA WEIRD: MULTIPLICATIVE GRAIN</button>
+          <button class="photo-app__effect-item" type="button" data-effect="misregistration">EXTRA WEIRD: NEWSPAPER MISREGISTRATION</button>
+          <button class="photo-app__effect-item photo-app__effect-item--stack" type="button" data-effect="gritty-stack">GRITTY DIGITAL STACK (RECOMMENDED)</button>
+          <button class="photo-app__effect-item photo-app__effect-item--clear" type="button" data-effect="none">NO EFFECT STACK</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- The standalone editor owns its own behavior, separate from the main portfolio script. -->
+  <script defer src="./photoeditor.js"></script>
+</body>
+</html>

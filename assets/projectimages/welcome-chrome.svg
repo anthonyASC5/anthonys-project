@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Welcome</title>
+  <desc id="desc">Chrome script welcome lettering with write animation</desc>
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9fbff"/>
+      <stop offset="0.18" stop-color="#b8bec9"/>
+      <stop offset="0.35" stop-color="#f3f6fb"/>
+      <stop offset="0.52" stop-color="#787f8d"/>
+      <stop offset="0.7" stop-color="#eef2f8"/>
+      <stop offset="0.86" stop-color="#646b78"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .w-fill {
+        fill: url(#chrome);
+        opacity: 0;
+        animation: fillIn 500ms ease forwards;
+        animation-delay: 1300ms;
+      }
+      .w-stroke {
+        fill: none;
+        stroke: #f7f9fd;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 2200;
+        stroke-dashoffset: 2200;
+        animation: write 1500ms cubic-bezier(0.2, 0.82, 0.2, 1) forwards;
+      }
+      @keyframes write {
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes fillIn {
+        to { opacity: 1; }
+      }
+    </style>
+  </defs>
+  <g transform="translate(35 250)" filter="url(#glow)">
+    <text class="w-fill" x="0" y="0" font-family="Brush Script MT, Segoe Script, Snell Roundhand, cursive" font-size="250" font-style="italic" letter-spacing="6">WELCOME</text>
+    <text class="w-stroke" x="0" y="0" font-family="Brush Script MT, Segoe Script, Snell Roundhand, cursive" font-size="250" font-style="italic" letter-spacing="6">WELCOME</text>
+  </g>
+</svg>

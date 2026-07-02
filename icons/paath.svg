@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72" role="img" aria-label="Paath icon">
+  <g shape-rendering="crispEdges">
+    <rect x="14" y="12" width="44" height="4" fill="#4f9cff"/>
+    <rect x="30" y="16" width="12" height="10" fill="#3a78e0"/>
+    <rect x="26" y="22" width="20" height="18" fill="#4f9cff"/>
+    <rect x="28" y="24" width="16" height="14" fill="#8ec1ff"/>
+    <rect x="32" y="26" width="8" height="8" fill="#ffffff"/>
+
+    <rect x="22" y="28" width="6" height="10" fill="#3a78e0"/>
+    <rect x="44" y="28" width="6" height="10" fill="#3a78e0"/>
+    <rect x="20" y="36" width="8" height="8" fill="#4f9cff"/>
+    <rect x="44" y="36" width="8" height="8" fill="#4f9cff"/>
+    <rect x="24" y="40" width="24" height="8" fill="#2b58a6"/>
+    <rect x="30" y="48" width="12" height="8" fill="#ff8f45"/>
+    <rect x="32" y="56" width="8" height="4" fill="#ffd36b"/>
+  </g>
+</svg>
