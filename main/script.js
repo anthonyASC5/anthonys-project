@@ -707,6 +707,7 @@ const FINDER_TAB_LABELS = {
 };
 
 // Cache the main DOM surfaces once so the rest of the file can stay focused on behavior.
+const systemBar = document.querySelector(".system-bar");
 const clock = document.getElementById("clock");
 const crumb = document.getElementById("system-crumb");
 const windowLayer = document.querySelector(".window-layer");
@@ -714,6 +715,8 @@ const windows = Array.from(document.querySelectorAll(".window"));
 const projectButtons = Array.from(document.querySelectorAll("[data-project]"));
 const openWindowButtons = Array.from(document.querySelectorAll("[data-open-window]"));
 const scrollButtons = Array.from(document.querySelectorAll("[data-scroll-to]"));
+const mobileNavToggleButton = document.querySelector("[data-mobile-nav-toggle]");
+const mobileNavCloseButton = document.querySelector("[data-mobile-nav-close]");
 const copyButton = document.querySelector("[data-copy-email]");
 const projectWindow = document.querySelector('[data-window="project"]');
 const photoEditorWindow = document.querySelector('[data-window="photoeditor"]');
@@ -726,6 +729,7 @@ const photoEditorFullscreenButton = document.querySelector("[data-photoeditor-fu
 const photoEditorMinimizeButton = document.querySelector("[data-photoeditor-minimize]");
 const finderTabButtons = Array.from(document.querySelectorAll("[data-finder-tab]"));
 const finderPanels = Array.from(document.querySelectorAll("[data-finder-panel]"));
+const mobileViewport = window.matchMedia("(max-width: 780px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const orderedProjectIds = [...new Set(projectButtons.map((button) => button.dataset.project).filter((id) => id && projectData[id]))];
 
@@ -880,6 +884,22 @@ function setCrumbForSection(sectionId) {
   setCrumb(SECTION_LABELS[sectionId] || "Overview");
 }
 
+function isMobileViewport() {
+  return mobileViewport.matches;
+}
+
+function setMobileNavOpen(open) {
+  if (!systemBar || !mobileNavToggleButton) return;
+
+  const shouldOpen = Boolean(open) && isMobileViewport();
+  systemBar.classList.toggle("is-mobile-nav-open", shouldOpen);
+  mobileNavToggleButton.setAttribute("aria-expanded", String(shouldOpen));
+}
+
+function closeMobileNav() {
+  setMobileNavOpen(false);
+}
+
 // Window helpers keep every mac-style panel centered, layered, and easy to reopen.
 // Window manager helpers centralize stacking, positioning, and breadcrumb updates for every modal window.
 function findWindow(name) {
@@ -953,6 +973,8 @@ function closeAllWindows(exceptName = "") {
 function openWindow(name) {
   const windowEl = findWindow(name);
   if (!windowEl) return;
+
+  closeMobileNav();
 
   if (SINGLE_ACTIVE_WINDOW_NAMES.has(name)) {
     closeAllWindows(name);
@@ -1720,6 +1742,8 @@ function openProject(projectId) {
 
 // Navigation helpers support both section scrolling and opening windows from shared buttons.
 function scrollToSection(sectionId) {
+  closeMobileNav();
+
   const section = document.getElementById(sectionId);
   if (!section) {
     if (WINDOW_LABELS[sectionId]) openWindow(sectionId);
@@ -1809,6 +1833,22 @@ function bindNavigationButtons() {
       setFinderTab(button.dataset.finderTab);
     });
   });
+
+  mobileNavToggleButton?.addEventListener("click", () => {
+    const nextOpenState = !systemBar?.classList.contains("is-mobile-nav-open");
+    setMobileNavOpen(nextOpenState);
+  });
+
+  mobileNavCloseButton?.addEventListener("click", () => {
+    closeMobileNav();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!isMobileViewport()) return;
+    if (!systemBar?.classList.contains("is-mobile-nav-open")) return;
+    if (event.target instanceof Node && systemBar.contains(event.target)) return;
+    closeMobileNav();
+  });
 }
 
 function bindDraggableWindows() {
@@ -1893,6 +1933,11 @@ function bindUtilityActions() {
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
 
+    if (systemBar?.classList.contains("is-mobile-nav-open")) {
+      closeMobileNav();
+      return;
+    }
+
     const topOpenWindow = windows
       .filter((windowEl) => windowEl.classList.contains("is-open"))
       .sort((a, b) => Number.parseInt(b.style.zIndex || "0", 10) - Number.parseInt(a.style.zIndex || "0", 10))[0];
@@ -1901,6 +1946,10 @@ function bindUtilityActions() {
   });
 
   window.addEventListener("resize", () => {
+    if (!isMobileViewport()) {
+      closeMobileNav();
+    }
+
     windows
       .filter((windowEl) => windowEl.classList.contains("is-open"))
       .forEach((windowEl) => positionWindow(windowEl));

@@ -34,11 +34,23 @@
       <div class="system-bar__group">
         <span class="system-bar__title">ANTHONY LALL</span>
       </div>
-      <div class="system-bar__group system-bar__actions">
-        <!-- <button class="system-bar__action" type="button" data-open-window="finder">FINDER</button> -->
-        <button class="system-bar__action" type="button" data-open-window="photoeditor">PHOTO EDITOR</button>
-        <button class="system-bar__action" type="button" data-open-window="resume">RESUME</button>
-        <button class="system-bar__action" type="button" data-open-window="contact">CONTACT</button>
+      <div class="system-bar__group system-bar__group--nav">
+        <button
+          class="system-bar__menu-toggle"
+          type="button"
+          data-mobile-nav-toggle
+          aria-expanded="false"
+          aria-controls="system-bar-actions"
+        >
+          MENU
+        </button>
+        <div class="system-bar__actions" id="system-bar-actions">
+          <button class="system-bar__menu-close" type="button" data-mobile-nav-close aria-label="Close navigation">X</button>
+          <!-- <button class="system-bar__action" type="button" data-open-window="finder">FINDER</button> -->
+          <button class="system-bar__action" type="button" data-open-window="photoeditor">PHOTO EDITOR</button>
+          <button class="system-bar__action" type="button" data-open-window="resume">RESUME</button>
+          <button class="system-bar__action" type="button" data-open-window="contact">CONTACT</button>
+        </div>
       </div>
     </div>
   </header>
