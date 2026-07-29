@@ -1,0 +1,124 @@
+:root {
+  --color-paper: oklch(97.8% 0.004 95);
+  --color-paper-2: oklch(94.8% 0.006 95);
+  --color-ink: oklch(17.5% 0.01 270);
+  --color-ink-2: oklch(39% 0.01 270);
+  --color-rule: oklch(87% 0.01 95);
+  --color-focus: oklch(59% 0.14 252);
+  --color-inverse: oklch(96.8% 0.003 95);
+  --color-nav-ink: oklch(22% 0.01 270);
+  --color-nav-ink-inverse: oklch(95% 0.003 95);
+
+  --font-display: "Inter Tight", "SF Pro Display", "Helvetica Neue", sans-serif;
+  --font-body: "Inter", "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-mono: "SFMono-Regular", "SF Mono", "JetBrains Mono", monospace;
+
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5rem;
+  --space-4xl: 7rem;
+  --space-5xl: 10rem;
+  --space-6xl: 13rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.5rem;
+  --text-4xl: clamp(3.5rem, 5vw, 4.5rem);
+  --text-5xl: clamp(4.5rem, 7vw, 6rem);
+  --text-6xl: clamp(5rem, 8vw, 7.5rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short: 220ms;
+  --dur-medium: 680ms;
+  --dur-long: 900ms;
+
+  --radius-card: 0.75rem;
+  --radius-image: 0.625rem;
+  --radius-pill: 999px;
+  --rule-width: 1px;
+  --content-width: min(100% - 3rem, 96rem);
+
+  --project-blobtracker-bg: oklch(80% 0.18 348);
+  --project-blobtracker-ink: oklch(16% 0.01 270);
+  --project-blobtracker-muted: oklch(29% 0.02 320);
+  --project-blobtracker-line: oklch(62% 0.08 338);
+  --project-blobtracker-media: oklch(88% 0.09 343);
+
+  --project-datamosh-bg: oklch(70% 0.19 32);
+  --project-datamosh-ink: oklch(98% 0.003 95);
+  --project-datamosh-muted: oklch(88% 0.02 70);
+  --project-datamosh-line: oklch(82% 0.08 42);
+  --project-datamosh-media: oklch(58% 0.12 24);
+
+  --project-l4vfx-bg: oklch(94% 0.018 85);
+  --project-l4vfx-ink: oklch(16% 0.01 270);
+  --project-l4vfx-muted: oklch(35% 0.018 250);
+  --project-l4vfx-line: oklch(82% 0.03 80);
+  --project-l4vfx-media: oklch(90% 0.04 235);
+
+  --project-lallsuite-bg: oklch(18% 0.01 270);
+  --project-lallsuite-ink: oklch(96% 0.003 95);
+  --project-lallsuite-muted: oklch(80% 0.014 95);
+  --project-lallsuite-line: oklch(34% 0.02 270);
+  --project-lallsuite-media: oklch(24% 0.03 28);
+
+  --project-audiomachine-bg: oklch(26% 0.06 300);
+  --project-audiomachine-ink: oklch(97% 0.004 95);
+  --project-audiomachine-muted: oklch(87% 0.02 320);
+  --project-audiomachine-line: oklch(44% 0.08 300);
+  --project-audiomachine-media: oklch(32% 0.08 295);
+
+  --project-lanzoid-bg: oklch(95% 0.04 215);
+  --project-lanzoid-ink: oklch(16% 0.01 270);
+  --project-lanzoid-muted: oklch(33% 0.02 220);
+  --project-lanzoid-line: oklch(82% 0.03 215);
+  --project-lanzoid-media: oklch(90% 0.05 210);
+
+  --project-paath-bg: oklch(91% 0.05 247);
+  --project-paath-ink: oklch(17% 0.01 270);
+  --project-paath-muted: oklch(34% 0.02 245);
+  --project-paath-line: oklch(80% 0.04 248);
+  --project-paath-media: oklch(87% 0.05 250);
+
+  --project-karebare-bg: oklch(95% 0.02 80);
+  --project-karebare-ink: oklch(18% 0.01 270);
+  --project-karebare-muted: oklch(38% 0.015 70);
+  --project-karebare-line: oklch(84% 0.02 78);
+  --project-karebare-media: oklch(91% 0.025 82);
+
+  --project-coala-bg: oklch(93% 0.04 150);
+  --project-coala-ink: oklch(17% 0.01 270);
+  --project-coala-muted: oklch(33% 0.02 150);
+  --project-coala-line: oklch(80% 0.03 150);
+  --project-coala-media: oklch(88% 0.04 148);
+
+  --project-cmp-bg: oklch(54% 0.16 29);
+  --project-cmp-ink: oklch(97% 0.004 95);
+  --project-cmp-muted: oklch(88% 0.016 65);
+  --project-cmp-line: oklch(66% 0.08 28);
+  --project-cmp-media: oklch(47% 0.11 25);
+
+  --project-shotbyall-bg: oklch(18% 0.01 270);
+  --project-shotbyall-ink: oklch(96.5% 0.003 95);
+  --project-shotbyall-muted: oklch(80% 0.014 95);
+  --project-shotbyall-line: oklch(34% 0.02 270);
+  --project-shotbyall-media: oklch(27% 0.01 270);
+
+  --project-photoeditor-bg: oklch(91% 0.02 73);
+  --project-photoeditor-ink: oklch(17% 0.01 270);
+  --project-photoeditor-muted: oklch(36% 0.015 60);
+  --project-photoeditor-line: oklch(82% 0.02 75);
+  --project-photoeditor-media: oklch(87% 0.03 72);
+}
