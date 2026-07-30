@@ -56,23 +56,23 @@
   --project-blobtracker-line: oklch(62% 0.08 338);
   --project-blobtracker-media: oklch(88% 0.09 343);
 
-  --project-datamosh-bg: oklch(70% 0.19 32);
+  --project-datamosh-bg: oklch(58% 0.24 28);
   --project-datamosh-ink: oklch(98% 0.003 95);
-  --project-datamosh-muted: oklch(88% 0.02 70);
-  --project-datamosh-line: oklch(82% 0.08 42);
-  --project-datamosh-media: oklch(58% 0.12 24);
+  --project-datamosh-muted: oklch(91% 0.035 48);
+  --project-datamosh-line: oklch(69% 0.15 32);
+  --project-datamosh-media: oklch(46% 0.18 24);
 
-  --project-l4vfx-bg: oklch(94% 0.018 85);
-  --project-l4vfx-ink: oklch(16% 0.01 270);
-  --project-l4vfx-muted: oklch(35% 0.018 250);
-  --project-l4vfx-line: oklch(82% 0.03 80);
-  --project-l4vfx-media: oklch(90% 0.04 235);
+  --project-l4vfx-bg: oklch(47% 0.22 258);
+  --project-l4vfx-ink: oklch(97% 0.004 95);
+  --project-l4vfx-muted: oklch(87% 0.035 255);
+  --project-l4vfx-line: oklch(64% 0.13 256);
+  --project-l4vfx-media: oklch(39% 0.19 258);
 
-  --project-lallsuite-bg: oklch(18% 0.01 270);
+  --project-lallsuite-bg: oklch(71% 0.19 54);
   --project-lallsuite-ink: oklch(96% 0.003 95);
-  --project-lallsuite-muted: oklch(80% 0.014 95);
-  --project-lallsuite-line: oklch(34% 0.02 270);
-  --project-lallsuite-media: oklch(24% 0.03 28);
+  --project-lallsuite-muted: oklch(92% 0.03 82);
+  --project-lallsuite-line: oklch(79% 0.11 58);
+  --project-lallsuite-media: oklch(62% 0.16 48);
 
   --project-audiomachine-bg: oklch(26% 0.06 300);
   --project-audiomachine-ink: oklch(97% 0.004 95);

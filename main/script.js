@@ -288,7 +288,7 @@ const PROJECTS = [
   }
 ];
 
-const INVERSE_NAV_THEMES = new Set(["datamosh", "lallsuite", "audiomachine", "cmp", "shotbyall"]);
+const INVERSE_NAV_THEMES = new Set(["datamosh", "l4vfx", "lallsuite", "audiomachine", "cmp", "shotbyall"]);
 const PROJECT_LAYOUTS = [
   { type: "single", id: "blobtracker" },
   { type: "single", id: "datamosh" },
@@ -302,7 +302,7 @@ const PROJECT_LAYOUTS = [
     navTone: "default",
     eyebrow: "School Projects",
     title: "Paath, KareBare, Coala, and Cornell Music Production.",
-    summary: "School work collected into one editorial panel with each project still carrying its own branding and link.",
+    summary: "",
     projectIds: ["paath", "karebare", "coala", "cmp"]
   },
   {
@@ -317,6 +317,16 @@ const PROJECT_LAYOUTS = [
 ];
 
 let activeWindow = null;
+
+function resetScrollPosition() {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}
+
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
+window.addEventListener("pageshow", resetScrollPosition);
 
 function escapeHtml(value) {
   return String(value)
@@ -411,6 +421,45 @@ function renderLinks(project) {
   `;
 }
 
+function renderProjectTitleLink(project) {
+  if (project.windowName) {
+    return `
+      <button
+        class="project-title-link project-title-link--button"
+        type="button"
+        data-open-window="${escapeHtml(project.windowName)}"
+      >
+        ${escapeHtml(project.title)}
+      </button>
+    `;
+  }
+
+  return `
+    <a
+      class="project-title-link"
+      href="${escapeHtml(project.href)}"
+      target="_blank"
+      rel="noreferrer"
+    >
+      ${escapeHtml(project.title)}
+    </a>
+  `;
+}
+
+function renderVideoFallback(title) {
+  return `
+    <button
+      class="project-video-fallback"
+      type="button"
+      data-video-play
+      hidden
+      aria-label="Play ${escapeHtml(title)} preview"
+    >
+      Play preview
+    </button>
+  `;
+}
+
 function renderMediaWrapper(project, innerMarkup) {
   if (project.windowName) {
     return `
@@ -439,6 +488,7 @@ function renderMediaWrapper(project, innerMarkup) {
 }
 
 function renderProject(project) {
+  const hasVideo = project.media.type === "video";
   const mediaFrame = `
     <figure class="project-panel__media-frame">
       ${renderMedia(project)}
@@ -458,7 +508,7 @@ function renderProject(project) {
           <div class="project-panel__copy">
             <p class="project-panel__eyebrow">${escapeHtml(project.group)}</p>
             <p class="project-panel__category">${escapeHtml(project.category)}</p>
-            <h2 class="project-panel__title" id="title-${escapeHtml(project.id)}">${escapeHtml(project.title)}</h2>
+            <h2 class="project-panel__title" id="title-${escapeHtml(project.id)}">${renderProjectTitleLink(project)}</h2>
             <div class="project-panel__summary">
               ${project.summary.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
             </div>
@@ -467,7 +517,10 @@ function renderProject(project) {
           </div>
 
           <div class="project-panel__media">
-            ${renderMediaWrapper(project, mediaFrame)}
+            <div class="project-panel__media-stage" ${hasVideo ? "data-video-stage" : ""}>
+              ${renderMediaWrapper(project, mediaFrame)}
+              ${hasVideo ? renderVideoFallback(project.title) : ""}
+            </div>
             <div class="project-panel__media-caption">
               <span>${escapeHtml(project.mediaLabel)}</span>
               <span class="project-panel__media-chip">
@@ -485,6 +538,7 @@ function renderProject(project) {
 function renderCollectionCard(project) {
   const summary = project.summary[0] || "";
   const isSchoolProject = project.group === "School Projects";
+  const hasVideo = project.media.type === "video" && !isSchoolProject;
   const cta = project.windowName
     ? `<button class="text-link text-link--button" type="button" data-open-window="${escapeHtml(project.windowName)}">${escapeHtml(project.linkLabel)}</button>`
     : `<a class="text-link" href="${escapeHtml(project.href)}" target="_blank" rel="noreferrer">${escapeHtml(project.linkLabel)}</a>`;
@@ -493,7 +547,7 @@ function renderCollectionCard(project) {
     <article class="project-card theme-${escapeHtml(project.theme)}">
       <div class="project-card__copy">
         <p class="project-card__eyebrow">${escapeHtml(project.category)}</p>
-        <h3 class="project-card__title">${escapeHtml(project.title)}</h3>
+        <h3 class="project-card__title">${renderProjectTitleLink(project)}</h3>
         <p class="project-card__summary">${escapeHtml(summary)}</p>
         ${renderMeta(project)}
         <div class="project-card__footer">
@@ -501,11 +555,14 @@ function renderCollectionCard(project) {
         </div>
       </div>
       <div class="project-card__media">
-        <figure class="project-card__media-frame${isSchoolProject ? " project-card__media-frame--plain" : ""}">
-          ${isSchoolProject
-            ? `<div class="project-card__logo-plain"><img src="${escapeHtml(project.iconPath)}" alt="${escapeHtml(project.iconAlt)}" loading="lazy"></div>`
-            : renderMedia(project)}
-        </figure>
+        <div class="project-card__media-stage" ${hasVideo ? "data-video-stage" : ""}>
+          <figure class="project-card__media-frame${isSchoolProject ? " project-card__media-frame--plain" : ""}">
+            ${isSchoolProject
+              ? `<div class="project-card__logo-plain"><img src="${escapeHtml(project.iconPath)}" alt="${escapeHtml(project.iconAlt)}" loading="lazy"></div>`
+              : renderMedia(project)}
+          </figure>
+          ${hasVideo ? renderVideoFallback(project.title) : ""}
+        </div>
       </div>
     </article>
   `;
@@ -515,6 +572,9 @@ function renderProjectCollection(layout) {
   const projects = layout.projectIds
     .map((id) => PROJECTS.find((project) => project.id === id))
     .filter(Boolean);
+  const summaryMarkup = layout.summary
+    ? `<p class="project-collection__summary">${escapeHtml(layout.summary)}</p>`
+    : "";
 
   return `
     <section
@@ -528,7 +588,7 @@ function renderProjectCollection(layout) {
         <div class="project-collection__header">
           <p class="section-label">${escapeHtml(layout.eyebrow)}</p>
           <h2 class="section-title project-collection__title" id="title-${escapeHtml(layout.id)}">${escapeHtml(layout.title)}</h2>
-          <p class="project-collection__summary">${escapeHtml(layout.summary)}</p>
+          ${summaryMarkup}
         </div>
         <div class="project-collection__grid">
           ${projects.map(renderCollectionCard).join("")}
@@ -542,6 +602,9 @@ function renderProjectDuo(layout) {
   const projects = layout.projectIds
     .map((id) => PROJECTS.find((project) => project.id === id))
     .filter(Boolean);
+  const summaryMarkup = layout.summary
+    ? `<p class="project-collection__summary">${escapeHtml(layout.summary)}</p>`
+    : "";
 
   return `
     <section
@@ -555,7 +618,7 @@ function renderProjectDuo(layout) {
         <div class="project-collection__header">
           <p class="section-label">${escapeHtml(layout.eyebrow)}</p>
           <h2 class="section-title project-collection__title" id="title-${escapeHtml(layout.id)}">${escapeHtml(layout.title)}</h2>
-          <p class="project-collection__summary">${escapeHtml(layout.summary)}</p>
+          ${summaryMarkup}
         </div>
         <div class="project-duo__grid">
           ${projects.map(renderCollectionCard).join("")}
@@ -657,12 +720,93 @@ function setupNavObserver() {
   sections.forEach((section) => observer.observe(section));
 }
 
+function setupSmartHeader() {
+  const nav = document.querySelector(".site-nav");
+  if (!nav) return;
+
+  const topThreshold = 24;
+  const hideThreshold = 120;
+  const deltaThreshold = 10;
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  const updateNavVisibility = () => {
+    const currentScrollY = window.scrollY;
+    const delta = currentScrollY - lastScrollY;
+    const scrollingDown = delta > deltaThreshold;
+    const scrollingUp = delta < -deltaThreshold;
+    const shouldHide = currentScrollY > hideThreshold && scrollingDown && !activeWindow;
+
+    if (currentScrollY <= topThreshold || scrollingUp || activeWindow) {
+      nav.classList.remove("is-hidden");
+    } else if (shouldHide) {
+      nav.classList.add("is-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateNavVisibility);
+    },
+    { passive: true }
+  );
+
+  updateNavVisibility();
+}
+
 function setupVideoObserver() {
   const videos = document.querySelectorAll("[data-project-video]");
   if (!videos.length) return;
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reducedMotion) return;
+
+  function setVideoFallbackVisibility(video, shouldShow) {
+    const stage = video.closest("[data-video-stage]");
+    const button = stage?.querySelector("[data-video-play]");
+    if (!button) return;
+    button.hidden = !shouldShow;
+  }
+
+  async function attemptVideoPlayback(video) {
+    try {
+      await video.play();
+      setVideoFallbackVisibility(video, false);
+    } catch (error) {
+      if (video.dataset.inView === "true") {
+        setVideoFallbackVisibility(video, true);
+      }
+    }
+  }
+
+  videos.forEach((video) => {
+    const stage = video.closest("[data-video-stage]");
+    const button = stage?.querySelector("[data-video-play]");
+
+    video.addEventListener("playing", () => {
+      setVideoFallbackVisibility(video, false);
+    });
+
+    video.addEventListener("pause", () => {
+      if (video.dataset.inView === "true") {
+        setVideoFallbackVisibility(video, true);
+      }
+    });
+
+    if (button) {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        video.dataset.inView = "true";
+        attemptVideoPlayback(video);
+      });
+    }
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -670,9 +814,17 @@ function setupVideoObserver() {
         const video = entry.target;
 
         if (entry.isIntersecting) {
-          video.play().catch(() => {});
+          video.dataset.inView = "true";
+          if (reducedMotion) {
+            setVideoFallbackVisibility(video, true);
+            return;
+          }
+
+          attemptVideoPlayback(video);
         } else {
+          video.dataset.inView = "false";
           video.pause();
+          setVideoFallbackVisibility(video, false);
         }
       });
     },
@@ -742,10 +894,12 @@ function setupWindows() {
 }
 
 function init() {
+  resetScrollPosition();
   document.body.setAttribute("data-nav-tone", "default");
   renderProjects();
   setupRevealObserver();
   setupNavObserver();
+  setupSmartHeader();
   setupVideoObserver();
   setupWindows();
 }
