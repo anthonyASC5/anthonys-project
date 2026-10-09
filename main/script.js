@@ -245,7 +245,7 @@ const PROJECTS = [
     category: "Photography",
     year: "Ongoing",
     role: "Photographer / Brand Owner",
-    stack: ["Camera", "Pixieset"],
+    stack: ["Canon R5", "Adobe Suite", "Pixieset"],
     summary: [
       "ShotByAll is the visual brand for my photography work, centered on portrait imagery and visual identity.",
       "The site and brand system give the portfolio a cleaner home for presenting work and directing viewers."
@@ -310,8 +310,8 @@ const PROJECT_LAYOUTS = [
     id: "media-tools",
     navTone: "default",
     eyebrow: "Photography + Tooling",
-    title: "ShotByAll and the in-browser photo editor.",
-    summary: "One section for the photography brand and the lightweight editing tool that supports it.",
+    title: "undefined",
+    summary: "My digital media brand + a lightweight editing tool (in-browser).",
     projectIds: ["shotbyall", "photoeditor"]
   }
 ];
@@ -544,7 +544,7 @@ function renderCollectionCard(project) {
     : `<a class="text-link" href="${escapeHtml(project.href)}" target="_blank" rel="noreferrer">${escapeHtml(project.linkLabel)}</a>`;
 
   return `
-    <article class="project-card theme-${escapeHtml(project.theme)}">
+    <article class="project-card${isSchoolProject ? " project-card--school" : ""} theme-${escapeHtml(project.theme)}">
       <div class="project-card__copy">
         <p class="project-card__eyebrow">${escapeHtml(project.category)}</p>
         <h3 class="project-card__title">${renderProjectTitleLink(project)}</h3>
@@ -554,16 +554,14 @@ function renderCollectionCard(project) {
           ${cta}
         </div>
       </div>
-      <div class="project-card__media">
+      ${isSchoolProject ? "" : `<div class="project-card__media">
         <div class="project-card__media-stage" ${hasVideo ? "data-video-stage" : ""}>
-          <figure class="project-card__media-frame${isSchoolProject ? " project-card__media-frame--plain" : ""}">
-            ${isSchoolProject
-              ? `<div class="project-card__logo-plain"><img src="${escapeHtml(project.iconPath)}" alt="${escapeHtml(project.iconAlt)}" loading="lazy"></div>`
-              : renderMedia(project)}
+          <figure class="project-card__media-frame">
+            ${renderMedia(project)}
           </figure>
           ${hasVideo ? renderVideoFallback(project.title) : ""}
         </div>
-      </div>
+      </div>`}
     </article>
   `;
 }
